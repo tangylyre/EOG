@@ -2,7 +2,7 @@ import numpy
 import time
 import busio
 import digitalio
-# import board
+import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 import scipy
@@ -29,8 +29,10 @@ from datetime import date
 def getVol(x):
     # this function will get the voltage values of the last 30 seconds of recording, then determine the mean.
     # consider modifying algorithm with filter mechanisms if this result is inconsistent.
-    chan1 = 1
-    # replace this chan definition when implementing on the pi
+    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+    cs = digitalio.DigitalInOut(board.D5)
+    mcp = MCP.MCP3008(spi, cs)
+    chan1 = AnalogIn(mcp, MCP.P0)
     # x is a value called in the main calibration function: 0 = middle prompt, 1 = upward prompt, -1 = downward prompt
     if x == 0:
         print("Please look directly ahead for at least 30 seconds and press Q when finished.")
@@ -43,16 +45,15 @@ def getVol(x):
     data = []
     q = False
     while not q:
-        chan1 += 1
         if key('q'):
             write('\n')
             print("Stopping!")
             q = True
         if len(data) > 30:
             data.pop(0)
-            data.append(chan1)
+            data.append(chan1.voltage)
         else:
-            data.append(chan1)
+            data.append(chan1.voltage)
         time.sleep(1)
     return sum(data) / len(data)
 
@@ -64,7 +65,10 @@ def getVolTimed(Hz, t, x):
     # this function is the same as above but doesn't require keyboard input. instead it will wait 30 seconds and record
     # 30 seconds of input.
     # consider modifying algorithm with filter mechanisms if this result is inconsistent.
-    chan1 = 1
+    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+    cs = digitalio.DigitalInOut(board.D5)
+    mcp = MCP.MCP3008(spi, cs)
+    chan1 = AnalogIn(mcp, MCP.P0)
     # replace this chan definition when implementing on the pi
     # x is a value called in the main calibration function: 0 = middle prompt, 1 = upward prompt, -1 = downward prompt
     if x == 0:
@@ -87,31 +91,26 @@ def getVolTimed(Hz, t, x):
     print("starting...")
     engine.say("starting")
     engine.runAndWait()
-    start = time
-    while i < Hz:
-        if i == Hz/2:
-            print(str(t/2)+" seconds remain")
-            engine.say(str(t/2)+" seconds remain")
-            engine.runAndWait()
+    while i < t+1:
+        print(i, end=" ")
+        engine.say(str(i))
+        engine.runAndWait()
         chan1 += 1
-        data.append(chan1)
+        data.append(chan1.voltage)
         time.sleep(1/Hz)
         i += 1
     print("\n")
     engine.stop()
-    f = open("diagnostic.txt", "a")
-    f.write("\n")
-    f.write("x = "+str(x))
-    for y in data:
-        f.write("\n")
-        f.write(str(y))
+    f = open("diagnostic.txt", "w+")
+    f.write("\n begin log for calibration v1")
+    f.write(str(date.today()))
+    f.write("x = %d", x)
+    for x in len(data):
+        f.write(data(x))
     return sum(data) / len(data)
 
 
 def calibrate(Hz, t):
-    f = open("diagnostic.txt", "a")
-    f.write("\n begin log for calibration v1")
-    f.write(str(date.today()))
     # Hz sets the refresh rate for the calibration. Consider reducing this to improve performance.
     # t sets the period of each calibration sampling. Reduce this for convenience sake, but increase if datapoints
     # are inconsistent.
@@ -120,8 +119,7 @@ def calibrate(Hz, t):
     while x < 2:
         critical.append(getVolTimed(Hz, t, x))
         x += 1
-    f.close()
     return critical
 
 
-print(calibrate(100, 20))
+print(calibrate(10, 10))

@@ -1,7 +1,5 @@
-#Oculert V0.2
-#Alexander Humen, Jeffrey Frese, Michael McCarney, and Mark Thibeault
-
-####################---Import all relevant packages
+from datetime import date
+import time
 import os
 import numpy
 import time
@@ -10,24 +8,25 @@ import digitalio
 import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
-from pygame import mixer  # Load the popular external library
-import pickle # Rick
-import matplotlib.pyplot as plt
-from scipy import signal
-import scipy
+# from pygame import mixer  # Load the popular external library
+# import pickle  # Rick
+# import matplotlib.pyplot as plt
+# from scipy import signal
+# import scipy
 from datetime import date
+
 # BLUETOOTH PACKAGES I MAY NEED TO REMOVE
 # sudo apt uninstall bluetooth pi-bluetooth bluez blueman
 
 ####################---Importing Data
 
 ###---This is for saving data
-#with open('pattern.pkl','wb') as f:
+# with open('pattern.pkl','wb') as f:
 #    pickle.dump([pattern, data],f)
 
 
 ####################---Reading the GPIO
-    
+
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
 
@@ -40,19 +39,15 @@ mcp = MCP.MCP3008(spi, cs)
 # create an analog input channel on pin 0
 chan1 = AnalogIn(mcp, MCP.P0)
 chan2 = AnalogIn(mcp, MCP.P1)
-
-
-data = numpy.zeros(2000)
-#data1 = numpy.zeros(2000)
-#data2 = numpy.zeros(2000)
-print('start')
-
-t=time.time()
 f = open('observation.txt', 'a')
 f.write("\n begin log for calibration v1")
 f.write(str(date.today()))
-while True:
+x = 0
+while x < 100:
     c1 = chan1.voltage
     c2 = chan2.voltage
-    s = ""
+    s = ("\n%0.2f\t%0.2f" % (c1, c2))
+    f.write(s)
+    print("1 line printed.")
     time.sleep(0.5)
+    x += 1
