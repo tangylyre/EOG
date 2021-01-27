@@ -43,7 +43,7 @@ f = open('observation.txt', 'a')
 f.write("\n begin log for calibration v1")
 f.write(str(date.today()))
 x = 0
-while x < 100:
+while True:
     c1 = chan1.voltage
     c2 = chan2.voltage
     s = ("\n%0.2f\t%0.2f" % (c1, c2))

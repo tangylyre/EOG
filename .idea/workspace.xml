@@ -20,33 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/archive/E1T2P2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/sound.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/testfile jan5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/testfileJan5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/testfileJan5revision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/trail.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/v04.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/verif2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/verif2_miss.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/verif2_nonpeaks_hist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/weirdplot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/E1T2P2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tyler's New Shit/calibrationV1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tyler's New Shit/calibrationV1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calibrationv1raspi.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrationv1raspi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collectRaws.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectRaws.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sound.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testfile jan5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testfileJan5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testfileJan5revision.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trail.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/v04.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/verif2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/verif2_miss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/verif2_nonpeaks_hist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weirdplot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnostic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostic.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/observation.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
