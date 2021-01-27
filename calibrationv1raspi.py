@@ -121,5 +121,3 @@ def calibrate(Hz, t):
         x += 1
     return critical
 
-
-print(calibrate(10, 10))

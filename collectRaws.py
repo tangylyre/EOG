@@ -48,6 +48,6 @@ while x < 100:
     c2 = chan2.voltage
     s = ("\n%0.2f\t%0.2f" % (c1, c2))
     f.write(s)
-    print("1 line printed.")
+    print(x, end=" ")
     time.sleep(0.5)
     x += 1
