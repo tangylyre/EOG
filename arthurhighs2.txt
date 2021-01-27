@@ -1,6 +1,4 @@
-
-
- begin log for calibration v12021-01-27
+begin log for calibration v12021-01-27
 3.30	3.27
 3.30	3.22
 2.89	3.17
