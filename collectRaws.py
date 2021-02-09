@@ -49,5 +49,5 @@ while True:
     s = ("\n%0.2f\t%0.2f" % (c1, c2))
     f.write(s)
     print(x, end=" ")
-    time.sleep(0.5)
+    time.sleep(0.05)
     x += 1
