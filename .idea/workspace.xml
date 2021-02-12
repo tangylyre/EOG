@@ -20,35 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/arthurcenter.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arthurhigh.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arthurhighs2.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arthurlows.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calibration data v1.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calidatafeb5.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex4.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment2.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/experiment3.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/molly.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/molly5vdeadzone.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mollyflicks.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mollyhigh.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mollyneutral.tsv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arthurcenter.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arthurhigh.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arthurhighs2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arthurlows.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calibrationv1.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrationv1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnostic.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostic.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/molly.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/molly5vdeadzone.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mollyflicks.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mollyhigh.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mollyneutral.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
