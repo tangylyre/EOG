@@ -47,4 +47,4 @@ while not q:
     graph.set_ydata(Y)
     plt.draw()
     plt.pause(1/Hz)
-    f.write(c1+'\n')
+    f.write(str(c1)+'\n')
