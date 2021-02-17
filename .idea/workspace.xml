@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/readingframev1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testingmatplot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/josh.txt" beforeDir="false" afterPath="$PROJECT_DIR$/josh.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readingframev1.py" beforeDir="false" afterPath="$PROJECT_DIR$/readingframev1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RasPi-Projects/idiot bot/cheembisV1.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -181,8 +179,8 @@
       <item itemvalue="Python.goldbach_conjecture_v1 (2)" />
       <item itemvalue="Python.kpp62_collatz_sequence (1)" />
       <item itemvalue="Python.kpp62_collatz_sequence" />
-      <item itemvalue="Python.testingmatplot" />
       <item itemvalue="Python.scratch_4" />
+      <item itemvalue="Python.testingmatplot" />
     </list>
     <recent_temporary>
       <list>
