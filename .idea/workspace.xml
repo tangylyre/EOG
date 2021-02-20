@@ -19,8 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="bugfix">
-      <change beforePath="$PROJECT_DIR$/readingframev1.py" beforeDir="false" afterPath="$PROJECT_DIR$/readingframev1.py" afterDir="false" />
+    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="bugfix again">
+      <change afterPath="$PROJECT_DIR$/data compile.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/molly cali old electrosafsdfasdf.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/molly grass electrode config.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mollyblinksconfig1.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mollyblinksconfig2.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mollyblinksconfig3.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mollyblinksconfig4.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/molly cali old electrosafsdfasdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/molly grass electrode config.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollyblinksconfig1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollyblinksconfig2.txt.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollyblinksconfig3txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollyblinksconfig4txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613583867131</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bugfix again">
+      <created>1613583909907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1613583909907</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +245,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="bugfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bugfix" />
+    <MESSAGE value="bugfix again" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugfix again" />
   </component>
 </project>
