@@ -5,7 +5,7 @@
 # of values.
 import board
 import busio
-
+import time
 import adafruit_mcp4725
 
 # Initialize I2C bus.
@@ -37,7 +37,9 @@ while True:
     print("Going up 0-3.3V...")
     for i in range(4095):
         dac.raw_value = i
+        time.sleep(1)
     # Go back down the 12-bit raw range.
     print("Going down 3.3-0V...")
     for i in range(4095, -1, -1):
         dac.raw_value = i
+        time.sleep(1)
