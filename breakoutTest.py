@@ -12,7 +12,10 @@ import adafruit_mcp4725
 i2c = busio.I2C(board.SCL, board.SDA)
 
 # Initialize MCP4725.
-dac = adafruit_mcp4725.MCP4725(i2c)
+try:
+    dac = adafruit_mcp4725.MCP4725(i2c)
+except ValueError:
+    dac = adafruit_mcp4725.MCP4725(i2c, address=63)
 # Optionally you can specify a different addres if you override the A0 pin.
 # amp = adafruit_max9744.MAX9744(i2c, address=0x63)
 
