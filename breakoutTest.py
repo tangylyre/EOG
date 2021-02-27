@@ -45,4 +45,4 @@ while True:
     print("Going down 3.3-0V...")
     for i in range(4095, -1, -1):
         dac.raw_value = i
-        time.sleep(1)
+        time.sleep(0.001)
