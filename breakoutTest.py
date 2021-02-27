@@ -7,6 +7,7 @@ import board
 import busio
 import time
 import adafruit_mcp4725
+import keyboard as key
 
 # Initialize I2C bus.
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -33,20 +34,35 @@ dac.normalized_value = 1.0  # Use the normalized_value property to set the
 # output with a floating point value in the range
 # 0 to 1.0 where 0 is minimum/ground and 1.0 is
 # maximum/Vout.
+q = False
+global q
+
+
+def terminate():
+    global q
+    q = True
+    return
+
 
 # Main loop will go up and down through the range of DAC values forever.
-while True:
+while not q:
     # Go up the 12-bit raw range.
     print("Going up 0-3.3V...")
     i = 0.05
     while i < 0.90:
+        if key.is_pressed('esc'):
+            terminate()
         dac.normalized_value = i
         i += 0.1
         time.sleep(0.05)
     # Go back down the 12-bit raw range.
     print("Going down 3.3-0V...")
     while i > 0.10:
+        if key.is_pressed('esc'):
+            terminate()
         print(i)
         dac.normalized_value = i
         i -= 0.1
         time.sleep(0.05)
+dac.normalized_value = 0
+print('finished')
