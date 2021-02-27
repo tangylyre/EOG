@@ -177,11 +177,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.braille_translator" />
-      <item itemvalue="Python.cheembisV1" />
       <item itemvalue="Python.goldbach_conjecture_v1 (2)" />
       <item itemvalue="Python.scratch_4" />
       <item itemvalue="Python.testingmatplot" />
+      <item itemvalue="Python.braille_translator" />
+      <item itemvalue="Python.cheembisV1" />
     </list>
     <recent_temporary>
       <list>
