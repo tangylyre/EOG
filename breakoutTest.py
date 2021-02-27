@@ -38,12 +38,12 @@ dac.normalized_value = 1.0  # Use the normalized_value property to set the
 while True:
     # Go up the 12-bit raw range.
     print("Going up 0-3.3V...")
-    i = 0
-    while i < 1:
+    i = 0.05
+    while i < 0.95:
         dac.normalized_value = i
         i += 0.1
     # Go back down the 12-bit raw range.
     print("Going down 3.3-0V...")
-    while i > 0:
+    while i > 0.05:
         dac.normalized_value = i
         i -= 0.1
