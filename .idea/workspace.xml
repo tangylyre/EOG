@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout continued">
-      <change afterPath="$PROJECT_DIR$/readingFramev2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakoutTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakoutTest.py" afterDir="false" />
     </list>
@@ -237,7 +236,28 @@
       <option name="project" value="LOCAL" />
       <updated>1613858863245</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bbtest">
+      <created>1614453289287</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614453289287</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bbtest2">
+      <created>1614453539293</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614453539293</updated>
+    </task>
+    <task id="LOCAL-00008" summary="bbtest2">
+      <created>1614453544065</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614453544065</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +278,8 @@
     <MESSAGE value="bugfix again" />
     <MESSAGE value="breakout start" />
     <MESSAGE value="breakout continued" />
-    <option name="LAST_COMMIT_MESSAGE" value="breakout continued" />
+    <MESSAGE value="bbtest" />
+    <MESSAGE value="bbtest2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bbtest2" />
   </component>
 </project>
