@@ -51,7 +51,8 @@ while not q:
     i = 0.05
     while i < 0.90:
         if key.is_pressed('esc'):
-            terminate()
+            q = True
+            print('flag')
         dac.normalized_value = i
         i += 0.1
         time.sleep(0.05)
@@ -59,7 +60,8 @@ while not q:
     print("Going down 3.3-0V...")
     while i > 0.10:
         if key.is_pressed('esc'):
-            terminate()
+            q = True
+            print('flag')
         print(i)
         dac.normalized_value = i
         i -= 0.1
