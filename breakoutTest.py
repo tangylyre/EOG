@@ -34,8 +34,8 @@ dac.normalized_value = 1.0  # Use the normalized_value property to set the
 # output with a floating point value in the range
 # 0 to 1.0 where 0 is minimum/ground and 1.0 is
 # maximum/Vout.
-q = False
 global q
+q = False
 
 
 def terminate():
