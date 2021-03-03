@@ -37,7 +37,7 @@ c1 = 0
 t = 0
 X = np.linspace(0, Rf, Hz)
 Y = np.linspace(0, 0, Hz)
-xf = fftfreq(len(y), 1/Hz)
+xf = fftfreq(len(Y), 1/Hz)
 yf = fourTransMag(Y)
 graph = plt.plot(xf, yf)
 plt.xlim([0, 200])
