@@ -46,7 +46,7 @@ plt.ylim([0, 100])
 f = open(file, 'a')
 f.write("\n begin log for calibration v1")
 f.write(str(datetime.now()))
-
+plt.ion()
 q = False
 while not q:
     c1 = chan1.voltage
