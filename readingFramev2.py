@@ -6,6 +6,7 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
+import fourTrans
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
 Rf = 10
@@ -30,9 +31,11 @@ c1 = 0
 t = 0
 X = np.linspace(0, Rf, Hz)
 Y = np.linspace(0, 0, Hz)
-graph = plt.plot(X, Y)[0]
-plt.xlim([0, Rf])
-plt.ylim([0, 3.5])
+xf = fftfreq(len(y), 1/Hz)
+yf = fourTrans(Y)
+graph = plt.plot(xf, yf)
+plt.xlim([0, 200])
+plt.ylim([0, 100])
 
 f = open(file, 'a')
 f.write("\n begin log for calibration v1")
@@ -44,7 +47,8 @@ while not q:
     Y[-1] = c1
     for x in range(len(Y) - 1):
         Y[x] = Y[x + 1]
-    graph.set_ydata(Y)
+    yf = fourTrans(Y)
+    graph.set_ydata(yf)
     plt.draw()
     plt.pause(1/Hz)
     f.write(str(c1)+'\n')

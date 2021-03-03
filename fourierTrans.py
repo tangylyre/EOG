@@ -6,12 +6,10 @@ import matplotlib.pyplot as plt
 from scipy.signal import blackman
 
 
-def fourTrans(y, Hz):
-    n = len(y)
-    spacing = 1 / Hz
+def fourTransMag(y):
     yf = fft(y)
-    xf = fftfreq(n, spacing)
-    return xf, yf
+    mag = np.sqrt(yf.real ** 2 + yf.imag ** 2)
+    return mag
 
 
 f = open('josh.txt')
