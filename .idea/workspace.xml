@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout continued">
-      <change afterPath="$PROJECT_DIR$/interruptTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakoutTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakoutTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readingFramev2.py" beforeDir="false" afterPath="$PROJECT_DIR$/readingFramev2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/readingFramev2.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/breakoutTest.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -334,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614558228414</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="breakout continued">
+      <created>1614815452067</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1614815452067</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,9 +362,9 @@
     <MESSAGE value="bugfix" />
     <MESSAGE value="bugfix again" />
     <MESSAGE value="breakout start" />
-    <MESSAGE value="breakout continued" />
     <MESSAGE value="bbtest" />
     <MESSAGE value="bbtest2" />
-    <option name="LAST_COMMIT_MESSAGE" value="bbtest2" />
+    <MESSAGE value="breakout continued" />
+    <option name="LAST_COMMIT_MESSAGE" value="breakout continued" />
   </component>
 </project>

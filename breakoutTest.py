@@ -59,12 +59,12 @@ while not q:
     # Go back down the 12-bit raw range.
     print("Going down 3.3-0V...")
     while i > 0.10:
-        if key.is_pressed('esc'):
-            q = True
-            print('flag')
-        print(i)
-        dac.normalized_value = i
-        i -= 0.1
-        time.sleep(0.05)
+        try:
+            print(i)
+            dac.normalized_value = i
+            i -= 0.1
+            time.sleep(0.05)
+        except KeyboardInterrupt:
+            break
 dac.normalized_value = 0
 print('finished')
