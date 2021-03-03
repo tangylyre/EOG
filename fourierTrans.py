@@ -12,23 +12,23 @@ def fourTransMag(y):
     return mag
 
 
-f = open('josh.txt')
-data = []
-for line in f:
-    if '\t' in line:
-        val = line.split('\t')[0]
-        data.append(val)
-print(len(data))
-xf, yf = fourTrans(data[60:], 500)
-print(len(xf))
-print(len(yf))
-fig, a = plt.subplots()
-plt.plot(xf, np.sqrt(yf.real ** 2 + yf.imag ** 2))
-plt.grid()
-a.set_ylim(0, 100)
-a.set_xlim(0, 200)
-a.set_ylabel('Magnitude (Volts)')
-a.set_xlabel('Frequency (Hz)')
-a.set_title('Fast Fourier Transform')
+#f = open('josh.txt')
+#data = []
+#for line in f:
+#    if '\t' in line:
+#        val = line.split('\t')[0]
+#        data.append(val)
+#print(len(data))
+#xf, yf = fourTrans(data[60:], 500)
+#print(len(xf))
+#print(len(yf))
+#fig, a = plt.subplots()
+#plt.plot(xf, np.sqrt(yf.real ** 2 + yf.imag ** 2))
+#plt.grid()
+#a.set_ylim(0, 100)
+#a.set_xlim(0, 200)
+#a.set_ylabel('Magnitude (Volts)')
+#a.set_xlabel('Frequency (Hz)')
+#a.set_title('Fast Fourier Transform')
 
-plt.show()
+#plt.show()
