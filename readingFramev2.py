@@ -30,9 +30,6 @@ mcp = MCP.MCP3008(spi, cs)
 # create an analog input channel on pin 0
 chan1 = AnalogIn(mcp, MCP.P0)
 
-x = 0
-fig = plt.figure()
-ax1 = fig.add_subplot(1, 1, 1)
 c1 = 0
 t = 0
 X = np.linspace(0, Rf, Hz)
