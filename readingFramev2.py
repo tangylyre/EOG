@@ -6,7 +6,7 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
-import fourTrans
+from fourierTrans import fourTrans
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
 Rf = 10
