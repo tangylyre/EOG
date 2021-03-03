@@ -6,7 +6,7 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
-from fourierTrans import fourTrans
+from fourierTrans import fourTransMag
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
 Rf = 10
@@ -32,7 +32,7 @@ t = 0
 X = np.linspace(0, Rf, Hz)
 Y = np.linspace(0, 0, Hz)
 xf = fftfreq(len(y), 1/Hz)
-yf = fourTrans(Y)
+yf = fourTransMag(Y)
 graph = plt.plot(xf, yf)
 plt.xlim([0, 200])
 plt.ylim([0, 100])
@@ -47,7 +47,7 @@ while not q:
     Y[-1] = c1
     for x in range(len(Y) - 1):
         Y[x] = Y[x + 1]
-    yf = fourTrans(Y)
+    yf = fourTransMag(Y)
     graph.set_ydata(yf)
     plt.draw()
     plt.pause(1/Hz)
