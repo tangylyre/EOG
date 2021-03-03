@@ -49,14 +49,14 @@ f.write(str(datetime.now()))
 plt.ion()
 q = False
 while not q:
+    c1 = chan1.voltage
+    Y[-1] = c1
+    for x in range(len(Y) - 1):
+        Y[x] = Y[x + 1]
+    yf = fourTransMag(Y)
+    line1.set_ydata(yf)
+    plt.draw()
     try:
-        c1 = chan1.voltage
-        Y[-1] = c1
-        for x in range(len(Y) - 1):
-            Y[x] = Y[x + 1]
-        yf = fourTransMag(Y)
-        line1.set_ydata(yf)
-        plt.draw()
         plt.pause(1 / Hz)
         f.write(str(c1) + '\n')
     except KeyboardInterrupt:

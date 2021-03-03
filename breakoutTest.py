@@ -59,10 +59,10 @@ while not q:
     # Go back down the 12-bit raw range.
     print("Going down 3.3-0V...")
     while i > 0.10:
+        print(i)
+        dac.normalized_value = i
+        i -= 0.1
         try:
-            print(i)
-            dac.normalized_value = i
-            i -= 0.1
             time.sleep(0.05)
         except KeyboardInterrupt:
             break
