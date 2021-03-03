@@ -54,7 +54,8 @@ while not q:
     for x in range(len(Y) - 1):
         Y[x] = Y[x + 1]
     yf = fourTransMag(Y)
-    graph.set_ydata(yf)
+    plt.set_ydata(yf)
     plt.draw()
     plt.pause(1/Hz)
     f.write(str(c1)+'\n')
+
