@@ -39,10 +39,12 @@ X = np.linspace(0, Rf, Hz)
 Y = np.linspace(0, 0, Hz)
 xf = fftfreq(len(Y), 1/Hz)
 yf = fourTransMag(Y)
-graph = plt.plot(xf, yf)
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+line1, = ax.plot(xf, yf, 'b-')
 plt.xlim([0, 200])
 plt.ylim([0, 100])
-
 f = open(file, 'a')
 f.write("\n begin log for calibration v1")
 f.write(str(datetime.now()))
@@ -53,9 +55,8 @@ while not q:
     Y[-1] = c1
     for x in range(len(Y) - 1):
         Y[x] = Y[x + 1]
-    graph.clear()
     yf = fourTransMag(Y)
-    plt.plot(xf, yf)
+    line1.set_ydata(yf)
     plt.draw()
     plt.pause(1/Hz)
     f.write(str(c1)+'\n')
