@@ -7,6 +7,12 @@ import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
 from fourierTrans import fourTransMag
+from numpy import linspace
+import numpy as np
+from numpy.fft import fftfreq
+from scipy.fft import fft, ifft
+import matplotlib.pyplot as plt
+from scipy.signal import blackman
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
 Rf = 10
