@@ -53,7 +53,7 @@ while not q:
     Y[-1] = c1
     for x in range(len(Y) - 1):
         Y[x] = Y[x + 1]
-    plt.clear()
+    graph.clear()
     yf = fourTransMag(Y)
     plt.plot(xf, yf)
     plt.draw()
