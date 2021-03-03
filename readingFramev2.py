@@ -16,7 +16,7 @@ from scipy.signal import blackman
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
 Rf = 10
-file = 'TylerReadingFramev2.txt'
+file = 'ArthurReadingFramev2.txt'
 
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
