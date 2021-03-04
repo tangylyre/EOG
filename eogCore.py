@@ -4,28 +4,39 @@ import busio
 import digitalio
 import board
 import adafruit_mcp3xxx.mcp3008 as EOG
-import adafruit_mcp4725
+import adafruit_mcp4725 as DAC
 from adafruit_mcp3xxx.analog_in import AnalogIn
 import numpy as np
 from scipy.fft import fft
 import board
 
 
+def initDAC():
+    # Initialize I2C bus.
+    i2c = busio.I2C(board.SCL, board.SDA)
+    # Initialize MCP4725.
+    try:
+        dac = DAC.MCP4725(i2c)
+    except ValueError:
+        dac = DAC.MCP4725(i2c, address=63)
+    # this will serve as a file storing core functions necesary to operate the EOG.
+    return dac
 
-# Initialize I2C bus.
-i2c = busio.I2C(board.SCL, board.SDA)
 
-# Initialize MCP4725.
-try:
-    dac = adafruit_mcp4725.MCP4725(i2c)
-except ValueError:
-    dac = adafruit_mcp4725.MCP4725(i2c, address=63)
-# this will serve as a file storing core functions necesary to operate the EOG.
+def setVoltsNorm(dac, x):
+    if x > 1:
+        x = 1
+    elif x < 0:
+        x = 0
+    dac.normalized_value = x
+    return
+
 
 def fourTransMag(y):
     yf = fft(y)
     mag = np.sqrt(yf.real ** 2 + yf.imag ** 2)
     return mag
+
 
 def initEOG():
     try:
@@ -77,4 +88,3 @@ def popNdArray(new, ndArray):
     for x in range(len(ndArray) - 1):
         ndArray[x] = ndArray[x + 1]
     return ndArray
-
