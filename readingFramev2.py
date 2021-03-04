@@ -58,11 +58,11 @@ try:
         line1.set_ydata(yf)
         try:
             plt.draw()
+            plt.pause(1 / Hz)
         except KeyboardInterrupt:
             plt.close()
             f.close()
             break
-        plt.pause(1 / Hz)
         f.write(str(c1) + '\n')
 except KeyboardInterrupt:
     plt.close()
