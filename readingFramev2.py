@@ -12,14 +12,17 @@ import matplotlib.pyplot as plt
 # this is the same as readingframe v1 but with fourier implementation.
 
 def initEOG():
-    # create the spi bus
-    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-    # create the cs (chip select)
-    cs = digitalio.DigitalInOut(board.D5)
-    # create the mcp object
-    mcp = MCP.MCP3008(spi, cs)
-    # create an analog input channel on pin 0
-    chanEOG = AnalogIn(mcp, MCP.P0)
+    try:
+        # create the spi bus
+        spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+        # create the cs (chip select)
+        cs = digitalio.DigitalInOut(board.D5)
+        # create the mcp object
+        mcp = MCP.MCP3008(spi, cs)
+        # create an analog input channel on pin 0
+        chanEOG = AnalogIn(mcp, MCP.P1)
+    except:
+        chanEOG = None
     return chanEOG
 
 
@@ -61,6 +64,7 @@ def popNdArray(new, ndArray):
 
 
 def main():
+    chanEOG = initEOG()
     try:
         file = str(input("Input the name of the file you'd like to write to:\n"))
         if file == '':
@@ -76,7 +80,7 @@ def main():
     q = False
     try:
         while not q:
-            c1 = chan1.voltage
+            c1 = chanEOG.voltage
             Y = popNdArray(c1, Y)
             yf = fourTransMag(Y)
             try:
