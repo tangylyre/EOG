@@ -12,17 +12,17 @@ import matplotlib.pyplot as plt
 # this is the same as readingframe v1 but with fourier implementation.
 
 def initEOG():
-    #try:
-    # create the spi bus
-    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-    # create the cs (chip select)
-    cs = digitalio.DigitalInOut(board.D5)
-    # create the mcp object
-    mcp = MCP.MCP3008(spi, cs)
-    # create an analog input channel on pin 0
-    chanEOG = AnalogIn(mcp, MCP.P1)
-    #except:
-    #    chanEOG = None
+    try:
+        # create the spi bus
+        spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+        # create the cs (chip select)
+        cs = digitalio.DigitalInOut(board.D5)
+        # create the mcp object
+        mcp = MCP.MCP3008(spi, cs)
+        # create an analog input channel on pin 0
+        chanEOG = AnalogIn(mcp, MCP.P1)
+    except:
+        chanEOG = False
     return chanEOG
 
 
