@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import busio
 import digitalio
 import board
@@ -7,12 +5,9 @@ import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
 from fourierTrans import fourTransMag
-from numpy import linspace
 import numpy as np
 from numpy.fft import fftfreq
-from scipy.fft import fft, ifft
 import matplotlib.pyplot as plt
-from scipy.signal import blackman
 
 # this is the same as readingframe v1 but with fourier implementation.
 Hz = 500
@@ -31,46 +26,61 @@ mcp = MCP.MCP3008(spi, cs)
 # create an analog input channel on pin 0
 chan1 = AnalogIn(mcp, MCP.P0)
 
-c1 = 0
-t = 0
-X = np.linspace(0, Rf, Hz)
-Y = np.linspace(0, 0, Hz)
-xf = fftfreq(len(Y), 1 / Hz)
-yf = fourTransMag(Y)
 
-fig = plt.figure()
+# c1 = 0
+# t = 0
+def initVals(rf, Hz):
+    X = np.linspace(0, rf, Hz)
+    Y = np.linspace(0, 0, Hz)
+    xf = fftfreq(len(Y), 1 / Hz)
+    yf = fourTransMag(Y)
+    return X, Y, xf, yf
 
-ax = fig.add_subplot(111)
-ax.set_ylabel('Magnitude (Volts)')
-ax.set_xlabel('Frequency (Hz)')
-ax.set_title('Fast Fourier Transform')
-line1, = ax.plot(xf, yf, 'b-')
-plt.xlim([0, 200])
-plt.ylim([0, 100])
-plt.grid()
-f = open(file, 'a')
-f.write("\n begin log for calibration v1")
-f.write(str(datetime.now()))
-plt.ion()
-q = False
-try:
-    while not q:
-        c1 = chan1.voltage
-        Y[-1] = c1
-        for x in range(len(Y) - 1):
-            Y[x] = Y[x + 1]
-        yf = fourTransMag(Y)
-        line1.set_ydata(yf)
-        try:
-            plt.draw()
-            plt.pause(1 / Hz)
-        except KeyboardInterrupt:
-            plt.close()
-            f.close()
-            break
-        f.write(str(c1) + '\n')
-except KeyboardInterrupt:
-    plt.close()
-    f.close()
 
-print("successfully quit.")
+def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
+    X, Y, xf, yf = initVals(rf, Hz)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set_ylabel('Magnitude (Volts)')
+    ax.set_xlabel('Frequency (Hz)')
+    ax.set_title('Fast Fourier Transform')
+    line, = ax.plot(xf, yf, 'b-')
+    plt.xlim(freqBounds)
+    plt.ylim(magBounds)
+    plt.grid()
+    plt.ion()
+    return X, Y, xf, yf, fig, ax, line
+
+
+def main():
+    hz = 500
+    rf = 10
+    X, Y, xf, yf, fig, ax, line = initPlot(rf, hz)
+    f = open(file, 'w+')
+    f.write("\n begin log for calibration v1")
+    f.write(str(datetime.now()))
+    q = False
+    try:
+        while not q:
+            c1 = chan1.voltage
+            Y[-1] = c1
+            for x in range(len(Y) - 1):
+                Y[x] = Y[x + 1]
+            yf = fourTransMag(Y)
+            line.set_ydata(yf)
+            try:
+                plt.draw()
+                plt.pause(1 / Hz)
+            except KeyboardInterrupt:
+                plt.close()
+                f.close()
+                break
+            f.write(str(c1) + '\n')
+    except KeyboardInterrupt:
+        plt.close()
+        f.close()
+    print("successfully quit.")
+
+
+if __name__ == '__main__':
+    main()
