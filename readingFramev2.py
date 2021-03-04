@@ -20,7 +20,7 @@ def initEOG():
         # create the mcp object
         mcp = MCP.MCP3008(spi, cs)
         # create an analog input channel on pin 0
-        chanEOG = AnalogIn(mcp, MCP.P1)
+        chanEOG = AnalogIn(mcp, MCP.P0)
     except:
         chanEOG = False
     return chanEOG
