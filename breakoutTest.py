@@ -1,18 +1,8 @@
 from eogCore import initDAC, setVoltsNorm
 from time import sleep
-import adafruit_mcp4725 as DAC
-import busio
-import board
-
-i2c = busio.I2C(board.SCL, board.SDA)
-# Initialize MCP4725.
-try:
-    dac = DAC.MCP4725(i2c)
-except ValueError:
-    dac = DAC.MCP4725(i2c, address=63)
 
 
-motor = dac
+motor = initDAC()
 i = 0.1
 x = 0
 try:
