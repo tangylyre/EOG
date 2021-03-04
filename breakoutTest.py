@@ -12,7 +12,7 @@ except ValueError:
     dac = DAC.MCP4725(i2c, address=63)
 
 
-motor = initDAC()
+motor = dac
 i = 0.1
 x = 0
 try:
