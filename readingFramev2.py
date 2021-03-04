@@ -52,6 +52,13 @@ def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
+def updatePlt(plt, line, yf):
+    line.set_ydata(yf)
+    plt.draw()
+    plt.pause(1 / Hz)
+    return
+
+
 def main():
     hz = 500
     rf = 10
@@ -67,10 +74,8 @@ def main():
             for x in range(len(Y) - 1):
                 Y[x] = Y[x + 1]
             yf = fourTransMag(Y)
-            line.set_ydata(yf)
             try:
-                plt.draw()
-                plt.pause(1 / Hz)
+                updatePlt(plt, line, yf)
             except KeyboardInterrupt:
                 plt.close()
                 f.close()
