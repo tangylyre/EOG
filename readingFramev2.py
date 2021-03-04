@@ -12,17 +12,17 @@ import matplotlib.pyplot as plt
 # this is the same as readingframe v1 but with fourier implementation.
 
 def initEOG():
-    try:
-        # create the spi bus
-        spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-        # create the cs (chip select)
-        cs = digitalio.DigitalInOut(board.D5)
-        # create the mcp object
-        mcp = MCP.MCP3008(spi, cs)
-        # create an analog input channel on pin 0
-        chanEOG = AnalogIn(mcp, MCP.P1)
-    except:
-        chanEOG = None
+    #try:
+    # create the spi bus
+    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+    # create the cs (chip select)
+    cs = digitalio.DigitalInOut(board.D5)
+    # create the mcp object
+    mcp = MCP.MCP3008(spi, cs)
+    # create an analog input channel on pin 0
+    chanEOG = AnalogIn(mcp, MCP.P1)
+    #except:
+    #    chanEOG = None
     return chanEOG
 
 
@@ -49,7 +49,7 @@ def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
-def updatePlt(plt, line, yf):
+def updatePlt(plt, line, yf, Hz):
     line.set_ydata(yf)
     plt.draw()
     plt.pause(1 / Hz)
@@ -65,6 +65,9 @@ def popNdArray(new, ndArray):
 
 def main():
     chanEOG = initEOG()
+    if not chanEOG:
+        print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
+        return
     try:
         file = str(input("Input the name of the file you'd like to write to:\n"))
         if file == '':
@@ -84,7 +87,7 @@ def main():
             Y = popNdArray(c1, Y)
             yf = fourTransMag(Y)
             try:
-                updatePlt(plt, line, yf)
+                updatePlt(plt, line, yf, hz)
             except KeyboardInterrupt:
                 plt.close()
                 f.close()
