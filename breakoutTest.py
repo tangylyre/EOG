@@ -1,4 +1,4 @@
-from eogCore import *
+from eogCore import initDAC, setVoltsNorm
 
 motor = initDAC()
 i = 0.1
@@ -9,6 +9,7 @@ try:
             i *= -1
         setVoltsNorm(motor, x)
         x += i
+        print(x)
 except KeyboardInterrupt:
     setVoltsNorm(motor, 0)
     print("stopping..")
