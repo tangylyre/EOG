@@ -74,6 +74,7 @@ def main():
             file = 'rfDatav2.%s' % datetime.now()
     except ValueError:
         file = 'rfDatav2.%s' % datetime.now()
+    file.replace(' ', '')
     hz = 500
     rf = 10
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
