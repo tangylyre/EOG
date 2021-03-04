@@ -49,13 +49,13 @@ def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     plt.ylim(magBounds)
     plt.grid()
     plt.ion()
-    return X, Y, xf, yf, fig, ax, line
+    return X, Y, xf, yf, fig, plt, ax, line
 
 
 def main():
     hz = 500
     rf = 10
-    X, Y, xf, yf, fig, ax, line = initPlot(rf, hz)
+    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     f = open(file, 'w+')
     f.write("\n begin log for calibration v1")
     f.write(str(datetime.now()))
