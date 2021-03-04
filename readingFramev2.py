@@ -71,10 +71,10 @@ def main():
     try:
         file = str(input("Input the name of the file you'd like to write to:\n"))
         if file == '':
-            file = 'rfDatav2.%s' % datetime.now()
+            file = 'rf_Data_%s' % datetime.now()
     except ValueError:
-        file = 'rfDatav2.%s' % datetime.now()
-    file.replace(' ', '')
+        file = 'rf_Data_%s' % datetime.now()
+    file.replace(' ', '_')
     hz = 500
     rf = 10
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
