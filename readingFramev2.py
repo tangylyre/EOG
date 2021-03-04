@@ -56,7 +56,12 @@ try:
             Y[x] = Y[x + 1]
         yf = fourTransMag(Y)
         line1.set_ydata(yf)
-        plt.draw()
+        try:
+            plt.draw()
+        except KeyboardInterrupt:
+            plt.close()
+            f.close()
+            break
         plt.pause(1 / Hz)
         f.write(str(c1) + '\n')
 except KeyboardInterrupt:
