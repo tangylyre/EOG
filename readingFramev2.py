@@ -10,25 +10,19 @@ from numpy.fft import fftfreq
 import matplotlib.pyplot as plt
 
 # this is the same as readingframe v1 but with fourier implementation.
-Hz = 500
-Rf = 10
-file = 'ArthurReadingFramev2.txt'
 
-# create the spi bus
-spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-
-# create the cs (chip select)
-cs = digitalio.DigitalInOut(board.D5)
-
-# create the mcp object
-mcp = MCP.MCP3008(spi, cs)
-
-# create an analog input channel on pin 0
-chan1 = AnalogIn(mcp, MCP.P0)
+def initEOG():
+    # create the spi bus
+    spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
+    # create the cs (chip select)
+    cs = digitalio.DigitalInOut(board.D5)
+    # create the mcp object
+    mcp = MCP.MCP3008(spi, cs)
+    # create an analog input channel on pin 0
+    chanEOG = AnalogIn(mcp, MCP.P0)
+    return chanEOG
 
 
-# c1 = 0
-# t = 0
 def initVals(rf, Hz):
     X = np.linspace(0, rf, Hz)
     Y = np.linspace(0, 0, Hz)
@@ -59,7 +53,20 @@ def updatePlt(plt, line, yf):
     return
 
 
+def popNdArray(new, ndArray):
+    ndArray[-1] = new
+    for x in range(len(ndArray) - 1):
+        ndArray[x] = ndArray[x + 1]
+    return ndArray
+
+
 def main():
+    try:
+        file = str(input("Input the name of the file you'd like to write to:\n"))
+        if file == '':
+            file = 'rfDatav2.%s' % datetime.now()
+    except ValueError:
+        file = 'rfDatav2.%s' % datetime.now()
     hz = 500
     rf = 10
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
@@ -70,9 +77,7 @@ def main():
     try:
         while not q:
             c1 = chan1.voltage
-            Y[-1] = c1
-            for x in range(len(Y) - 1):
-                Y[x] = Y[x + 1]
+            Y = popNdArray(c1, Y)
             yf = fourTransMag(Y)
             try:
                 updatePlt(plt, line, yf)
