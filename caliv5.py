@@ -24,7 +24,8 @@ def pullFourierProfile(t, Hz, eogChan):
             # print(yf)
         i += 1
         time.sleep(1 / Hz)
-        print("seconds elapsed: %0.2f" % int(i) / int(Hz))
+        currentTime = int(i) / int(Hz)
+        print("seconds elapsed: %0.2f" % currentTime)
     return fourierAveraged
 
 
