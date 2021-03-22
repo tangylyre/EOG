@@ -66,7 +66,7 @@ def main():
     if query == 'y':
         filename = input("input filename, or none for default")
         if len(filename) < 1:
-            currentTime = datetime.now().strip()
+            currentTime = str(datetime.now()).strip()
             filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, currentTime)
         f = open(filename, 'w')
         f.write("frequency(Hz)\tneutral\tdistress")
