@@ -1,7 +1,7 @@
 from datetime import datetime
 from fourierTrans import fourTransMag
 from eogCore import *
-
+import time
 
 def pullFourierProfile(t, Hz, eogChan):
     numFrames = t * Hz
@@ -22,6 +22,7 @@ def pullFourierProfile(t, Hz, eogChan):
             fourierAveraged = (fourierAveraged * j + fourTransMag(Y)) / (j + 1)
             # print(yf)
         i += 1
+        time.sleep(1/Hz)
     return fourierAveraged
 
 
