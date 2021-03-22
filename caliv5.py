@@ -66,13 +66,14 @@ def main():
     if query == 'y':
         filename = input("input filename, or none for default")
         if len(filename) < 1:
-            filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, datetime.now().replace(' ',''))
+            filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, datetime.now().replace(' ', ''))
         f = open(filename, 'w')
         f.write("frequency(Hz)\tneutral\tdistress")
         for i in range(len(neutral)):
-            line = xf[i]+'\t'+neutral[i]+'\t'+distress[i]+'\n'
+            line = xf[i] + '\t' + neutral[i] + '\t' + distress[i] + '\n'
             f.write(line)
-        f.close
+        f.close()
+
 
 if __name__ == "__main__":
     main()
