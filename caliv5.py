@@ -3,6 +3,7 @@ from fourierTrans import fourTransMag
 from eogCore import *
 import time
 
+
 def pullFourierProfile(t, Hz, eogChan):
     numFrames = t * Hz
     i = 0
@@ -22,7 +23,8 @@ def pullFourierProfile(t, Hz, eogChan):
             fourierAveraged = (fourierAveraged * j + fourTransMag(Y)) / (j + 1)
             # print(yf)
         i += 1
-        time.sleep(1/Hz)
+        time.sleep(1 / Hz)
+        print("seconds elapsed: %0.2f" % i / Hz)
     return fourierAveraged
 
 
@@ -38,13 +40,19 @@ def calibrationV3(t, Hz, eogChan):
 
 
 def main():
+    rf = 20
+    hz = 500
+    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     chanEOG = initEOG()
     if not chanEOG:
         print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
         return
-    [neutral, distress] = calibrationV3(20, 500, chanEOG)
+    [neutral, distress] = calibrationV3(rf, hz, chanEOG)
     print(neutral)
+    updatePlt(plt, line, neutral, hz)
+    time.sleep(10)
     print(distress)
+    updatePlt(plt, line, distress, hz)
 
 
 if __name__ == "__main__":
