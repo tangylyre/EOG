@@ -20,13 +20,14 @@ def pullFourierProfile(t, Hz, eogChan):
             j += 1
             # print(fourTransMag(Y))
             # print(fourierAveraged)
-            fourierAveraged = (fourierAveraged * j + fourTransMag(Y)) / (j + 1)
+            fourierAveraged = fourierAveraged + fourTransMag(Y)
             # print(yf)
         i += 1
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
+        print("%d dataframes were averaged." %j)
         print("seconds elapsed: %0.2f" % currentTime)
-    return fourierAveraged
+    return fourierAveraged/j
 
 
 def calibrationV3(t, Hz, eogChan):
