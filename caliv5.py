@@ -72,7 +72,7 @@ def main():
         for i in range(len(neutral)):
             line = xf[i]+'\t'+neutral[i]+'\t'+distress[i]+'\n'
             f.write(line)
-
+        f.close
 
 if __name__ == "__main__":
     main()
