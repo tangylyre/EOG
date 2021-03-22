@@ -31,10 +31,17 @@ def pullFourierProfile(t, Hz, eogChan):
 
 def calibrationV3(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
+    time.sleep(5)
+
     neutral = pullFourierProfile(t, Hz, eogChan)
+    print("done.")
+    time.sleep(1)
 
     print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
           "stop." % t)
+    time.sleep(5)
+    print("done.")
+    time.sleep(1)
     distress = pullFourierProfile(t, Hz, eogChan)
 
     return [neutral, distress]
@@ -51,10 +58,10 @@ def main():
     [neutral, distress] = calibrationV3(rf, hz, chanEOG)
     print(neutral)
     updatePlt(plt, line, neutral, hz)
-    time.sleep(10)
+    input("press enter to continue.")
     print(distress)
     updatePlt(plt, line, distress, hz)
-    time.sleep(10)
+    input("press enter to continue.")
 
 
 if __name__ == "__main__":
