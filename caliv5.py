@@ -17,10 +17,10 @@ def pullFourierProfile(t, Hz, eogChan):
         Y = popNdArray(c1, Y)
         if i > dataPoints:
             j += 1
-            print(fourTransMag(Y))
-            print(fourierAveraged)
+            # print(fourTransMag(Y))
+            # print(fourierAveraged)
             fourierAveraged = (fourierAveraged * j + fourTransMag(Y)) / (j + 1)
-            print(yf)
+            # print(yf)
         i += 1
     return fourierAveraged
 
