@@ -62,6 +62,18 @@ def main():
     print(distress)
     updatePlt(plt, line, distress, hz)
     input("press enter to continue.")
+    query = input("write to file? (y/n)")
+    if query == 'y':
+        filename = input("input filename, or none for default")
+        if len(filename) < 1:
+            filename = "calibration_profile_%dHz_%dseconds_%s.txt" % (hz, rf, datetime.now())
+        f = open(filename, 'w')
+        f.write("Begin Neutral Profile:\n")
+        for data in neutral:
+            f.write(data + '\t')
+        f.write("Begin Distress Profile:\n")
+        for data in distress:
+            f.write(data + '\t')
 
 
 if __name__ == "__main__":
