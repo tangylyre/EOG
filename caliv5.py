@@ -48,7 +48,7 @@ def calibrationV3(t, Hz, eogChan):
 
 
 def main():
-    rf = 20
+    rf = 1
     hz = 500
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     chanEOG = initEOG()
@@ -66,14 +66,12 @@ def main():
     if query == 'y':
         filename = input("input filename, or none for default")
         if len(filename) < 1:
-            filename = "calibration_profile_%dHz_%dseconds_%s.txt" % (hz, rf, datetime.now())
+            filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, datetime.now().replace(' ',''))
         f = open(filename, 'w')
-        f.write("Begin Neutral Profile:\n")
-        for data in neutral:
-            f.write(data + '\t')
-        f.write("Begin Distress Profile:\n")
-        for data in distress:
-            f.write(data + '\t')
+        f.write("frequency(Hz)\tneutral\tdistress")
+        for i in range(len(neutral)):
+            line = xf[i]+'\t'+neutral[i]+'\t'+distress[i]+'\n'
+            f.write(line)
 
 
 if __name__ == "__main__":
