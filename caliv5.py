@@ -71,7 +71,7 @@ def main():
         f = open(filename, 'w')
         f.write("frequency(Hz)\tneutral\tdistress")
         for i in range(len(neutral)):
-            line = xf[i] + '\t' + neutral[i] + '\t' + distress[i] + '\n'
+            line = str(xf[i]) + '\t' + str(neutral[i]) + '\t' + str(distress[i]) + '\n'
             f.write(line)
         f.close()
 
