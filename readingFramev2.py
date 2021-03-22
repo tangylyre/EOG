@@ -2,9 +2,8 @@ from datetime import datetime
 from fourierTrans import fourTransMag
 from eogCore import *
 
+
 # this is the same as readingframe v1 but with fourier implementation.
-
-
 
 
 def main():
