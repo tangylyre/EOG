@@ -54,6 +54,7 @@ def main():
     time.sleep(10)
     print(distress)
     updatePlt(plt, line, distress, hz)
+    time.sleep(10)
 
 
 if __name__ == "__main__":
