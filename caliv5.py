@@ -4,12 +4,14 @@ from eogCore import *
 
 
 def pullFourierProfile(t, Hz, eogChan):
-    numFrames = t / Hz
+    numFrames = t * Hz
     i = 0
     j = 0
     X, Y, xf, yf = initVals(t, Hz)
     fourierAveraged = yf
     dataPoints = len(Y)
+    print(dataPoints)
+    print(numFrames)
     while i <= numFrames:
         c1 = eogChan.voltage
         Y = popNdArray(c1, Y)
