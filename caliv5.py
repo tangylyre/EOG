@@ -69,7 +69,7 @@ def main():
             currentTime = str(datetime.now()).strip()
             filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, currentTime)
         f = open(filename, 'w')
-        f.write("frequency(Hz)\tneutral\tdistress")
+        f.write("frequency(Hz)\tneutral\tdistress\n")
         for i in range(len(neutral)):
             line = str(xf[i]) + '\t' + str(neutral[i]) + '\t' + str(distress[i]) + '\n'
             f.write(line)
