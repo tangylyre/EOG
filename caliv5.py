@@ -48,7 +48,7 @@ def calibrationV3(t, Hz, eogChan):
 
 
 def main():
-    rf = 1
+    rf = 20
     hz = 500
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     chanEOG = initEOG()
