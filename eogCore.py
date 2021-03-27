@@ -61,6 +61,23 @@ def initVals(rf, Hz):
     return X, Y, xf, yf
 
 
+def initVolPlot(rf, Hz, voltBounds=[0, 4]):
+    timeBounds = [0, rf]
+    X = np.linspace(0, rf, Hz)
+    Y = np.linspace(0, 0, Hz)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set_ylabel('Raw EOG Signal (Volts)')
+    ax.set_xlabel('Time (s)')
+    ax.set_title('Raw Voltage Monitor')
+    line, = ax.plot(X, Y, 'b-')
+    plt.xlim(timeBounds)
+    plt.ylim(voltBounds)
+    plt.grid()
+    plt.ion()
+    return X, Y, fig, plt, ax, line
+
+
 def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     X, Y, xf, yf = initVals(rf, Hz)
     fig = plt.figure()
