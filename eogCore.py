@@ -93,6 +93,20 @@ def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
+def initPlotFour(xf, yf, freqBounds=[0, 200], magBounds=[0, 100]):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set_ylabel('Magnitude (Volts)')
+    ax.set_xlabel('Frequency (Hz)')
+    ax.set_title('Fast Fourier Transform')
+    line, = ax.plot(xf, yf, 'b-')
+    plt.xlim(freqBounds)
+    plt.ylim(magBounds)
+    plt.grid()
+    plt.ion()
+    return fig, plt, ax, line
+
+
 def updatePlt(plt, line, yf, Hz):
     line.set_ydata(yf)
     plt.draw()

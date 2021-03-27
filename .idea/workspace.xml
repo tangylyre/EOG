@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/caliv6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00031" summary="breakout continued">
-      <created>1614819144745</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1614819144745</updated>
     </task>
     <task id="LOCAL-00032" summary="breakout continued">
       <created>1614819379317</created>
@@ -548,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616881365732</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="add">
+      <created>1616881426405</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1616881426405</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
