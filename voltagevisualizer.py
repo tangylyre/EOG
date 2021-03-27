@@ -31,6 +31,9 @@ t = 0
 X = np.linspace(0, Rf, Hz)
 Y = np.linspace(0, 0, Hz)
 graph = plt.plot(X, Y)[0]
+graph.set_ylabel('Magnitude (Volts)')
+graph.set_xlabel('Frequency (Hz)')
+graph.set_title('Fast Fourier Transform')
 plt.xlim([0, Rf])
 plt.ylim([0, 3.5])
 fi = "voltage_visualizer_datetime.now()"
@@ -57,5 +60,6 @@ try:
         plt.pause(1/Hz)
         f.write(str(c1)+'\n')
 except KeyboardInterrupt:
+    f.close()
     pass
 print("done!")
