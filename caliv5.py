@@ -1,5 +1,4 @@
 from datetime import datetime
-from fourierTrans import fourTransMag
 from eogCore import *
 import time
 
