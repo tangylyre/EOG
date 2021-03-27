@@ -6,7 +6,7 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from datetime import datetime
-
+from eogCore import *
 Hz = 500
 Rf = 10
 
