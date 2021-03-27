@@ -7,15 +7,16 @@ from eogCore import *
 
 def main():
     chanEOG = initEOG()
+    currentTime = str(datetime.now()).replace(' ', '_')
     if not chanEOG:
         print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
         return
     try:
         file = str(input("Input the name of the file you'd like to write to:\n"))
         if file == '':
-            file = 'FourierVis_%s' % datetime.now()
+            file = 'FourierVis_%s' % currentTime
     except ValueError:
-        file = 'FourierVis_%s' % datetime.now()
+        file = 'FourierVis_%s' % currentTime
     file.replace(' ', '_')
     hz = 500
     rf = 10

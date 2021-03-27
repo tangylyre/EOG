@@ -34,12 +34,13 @@ graph = plt.plot(X, Y)[0]
 plt.xlim([0, Rf])
 plt.ylim([0, 3.5])
 fi = "voltage_visualizer_datetime.now()"
+currentTime = str(datetime.now()).replace(' ', '_')
 try:
     file = str(input("Input the name of the file you'd like to write to:\n"))
     if file == '':
-        file = 'FourierVis_%s' % datetime.now()
+        file = 'FourierVis_%s' % currentTime
 except ValueError:
-    file = 'FourierVis_%s' % datetime.now()
+    file = 'FourierVis_%s' % currentTime
 file.replace(' ', '_')
 f = open(file, 'w')
 f.write("\n begin log for calibration v1")
