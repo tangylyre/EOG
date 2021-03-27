@@ -40,7 +40,7 @@ def calibrationV3(t, Hz, eogChan):
 
 
 def main():
-    rf = 20
+    rf = 10
     hz = 500
     chanEOG = initEOG()
     if not chanEOG:
