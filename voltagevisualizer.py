@@ -34,17 +34,28 @@ graph = plt.plot(X, Y)[0]
 plt.xlim([0, Rf])
 plt.ylim([0, 3.5])
 fi = "voltage_visualizer_datetime.now()"
-f = open('tyler.txt', 'w')
+try:
+    file = str(input("Input the name of the file you'd like to write to:\n"))
+    if file == '':
+        file = 'FourierVis_%s' % datetime.now()
+except ValueError:
+    file = 'FourierVis_%s' % datetime.now()
+file.replace(' ', '_')
+f = open(file, 'w')
 f.write("\n begin log for calibration v1")
-f.write(str(datetime.now()).replace(" ", ''))
+f.write(file)
 
 q = False
-while not q:
-    c1 = chan1.voltage
-    Y[-1] = c1
-    for x in range(len(Y) - 1):
-        Y[x] = Y[x + 1]
-    graph.set_ydata(Y)
-    plt.draw()
-    plt.pause(1/Hz)
-    f.write(str(c1)+'\n')
+try:
+    while not q:
+        c1 = chan1.voltage
+        Y[-1] = c1
+        for x in range(len(Y) - 1):
+            Y[x] = Y[x + 1]
+        graph.set_ydata(Y)
+        plt.draw()
+        plt.pause(1/Hz)
+        f.write(str(c1)+'\n')
+except KeyboardInterrupt:
+    pass
+print("done!")
