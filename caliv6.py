@@ -9,10 +9,10 @@ def pullFourierProfile(t, Hz, eogChan):
     j = 0
     xf = fftfreq(numFrames, 1 / Hz)
     Y = []
-    while i <= numFrames:
+    while i < numFrames:
+        i += 1
         c1 = eogChan.voltage
         Y.append(c1)
-        i += 1
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
         print("%d dataframes were averaged." % j)
