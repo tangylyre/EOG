@@ -5,7 +5,7 @@ import digitalio
 import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
-import datetime
+from datetime import datetime
 
 Hz = 500
 Rf = 10

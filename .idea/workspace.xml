@@ -205,13 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
     </task>
-    <task id="LOCAL-00020" summary="breakout continued">
-      <created>1614815452067</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1614815452067</updated>
-    </task>
     <task id="LOCAL-00021" summary="breakout continued">
       <created>1614815720142</created>
       <option name="number" value="00021" />
@@ -548,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616878058523</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="add">
+      <created>1616878181089</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1616878181089</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -574,5 +574,15 @@
     <MESSAGE value="calibration v3" />
     <MESSAGE value="add" />
     <option name="LAST_COMMIT_MESSAGE" value="add" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/voltagevisualizer.py</url>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
