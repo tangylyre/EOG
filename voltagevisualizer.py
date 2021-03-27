@@ -36,7 +36,7 @@ plt.ylim([0, 3.5])
 fi = "voltage_visualizer_datetime.now()"
 f = open('tyler.txt', 'w')
 f.write("\n begin log for calibration v1")
-f.write(str(datetime.today()))
+f.write(str(datetime.now()).replace(" ", ''))
 
 q = False
 while not q:
