@@ -44,7 +44,7 @@ def calibrationV3(t, Hz, eogChan):
 
 
 def main():
-    rf = 20
+    rf = 10
     hz = 500
     chanEOG = initEOG()
     if not chanEOG:
@@ -58,10 +58,12 @@ def main():
     print("displaying fourier of distress..")
     updatePlt(plt, line, yfDis, hz)
     input("press enter to continue.")
-    X, Y, fig, plt, ax, line = initVolPlot(rf, hz)
     print("displaying raw voltage of neutral..")
-    updatePlt(plt, line, Yneu, hz)
+    graph = plt.plot(Xneu, Yneu)[0]
+    plt.xlim([0, rf])
+    plt.ylim([0, 3.5])
     input("press enter to continue.")
+    graph.set_ydata(Ydis)
     print("displaying raw voltage of distress..")
     updatePlt(plt, line, Ydis, hz)
     input("press enter to continue.")
