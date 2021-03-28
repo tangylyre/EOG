@@ -9,7 +9,11 @@ def pullFourierProfile(t, Hz, eogChan):
     j = 0
     xf = fftfreq(numFrames, 1 / Hz)
     Y = []
+    X = []
+    t = 0
     while i < numFrames:
+        X.append(t)
+        t += 1 / Hz
         i += 1
         c1 = eogChan.voltage
         Y.append(c1)
@@ -18,14 +22,14 @@ def pullFourierProfile(t, Hz, eogChan):
         print("%d dataframes were averaged." % j)
         print("seconds elapsed: %0.2f" % currentTime)
     yf = fourTransMag(Y)
-    return [xf, yf]
+    return [X, Y, xf, yf]
 
 
 def calibrationV3(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)
 
-    [xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
+    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
     print("done.")
     time.sleep(1)
 
@@ -34,9 +38,9 @@ def calibrationV3(t, Hz, eogChan):
     time.sleep(5)
     print("done.")
     time.sleep(1)
-    [xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
 
-    return [xfDis, yfNeu, yfDis]
+    return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
 
 
 def main():
@@ -46,24 +50,33 @@ def main():
     if not chanEOG:
         print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
         return
-    xfDis, yfNeu, yfDis = calibrationV3(rf, hz, chanEOG)
+    Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis = calibrationV3(rf, hz, chanEOG)
     fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
-    print(yfNeu)
+    print("displaying fourier of neutral..")
     updatePlt(plt, line, yfNeu, hz)
     input("press enter to continue.")
-    print(yfDis)
+    print("displaying fourier of distress..")
     updatePlt(plt, line, yfDis, hz)
+    input("press enter to continue.")
+    X, Y, fig, plt, ax, line = initVolPlot(rf, hz)
+    print("displaying raw voltage of neutral..")
+    updatePlt(plt, line, Yneu, hz)
+    input("press enter to continue.")
+    print("displaying raw voltage of distress..")
+    updatePlt(plt, line, Ydis, hz)
     input("press enter to continue.")
     query = input("write to file? (y/n)")
     if query == 'y':
         filename = input("input filename, or none for default")
         if len(filename) < 1:
-            currentTime = str(datetime.now()).replace(' ', '_')
-            filename = "calibration_profile_%dHz_%dseconds_%s.tsv" % (hz, rf, currentTime)
+            filename = "calibration_profile_%dHz_%dseconds.tsv" % (hz, rf)
         f = open(filename, 'w')
-        f.write("frequency(Hz)\tneutral\tdistress\n")
+        currentTime = str(datetime.now()).replace(' ', '_')
+        f.write(currentTime + '\n')
+        f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\n")
         for i in range(len(yfNeu)):
-            line = str(xfDis[i]) + '\t' + str(yfNeu[i]) + '\t' + str(yfDis[i]) + '\n'
+            line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
+                yfNeu[i]) + '\t' + str(yfDis[i]) + '\n'
             f.write(line)
         f.close()
 

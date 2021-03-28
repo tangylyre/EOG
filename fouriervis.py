@@ -14,16 +14,16 @@ def main():
     try:
         file = str(input("Input the name of the file you'd like to write to:\n"))
         if file == '':
-            file = 'FourierVis_%s' % currentTime
+            file = 'FourierVis'
     except ValueError:
-        file = 'FourierVis_%s' % currentTime
+        file = 'FourierVis'
     file.replace(' ', '_')
     hz = 500
     rf = 10
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     f = open(file, 'w+')
     f.write("\n begin log for calibration v1")
-    f.write(str(datetime.now()))
+    f.write(str(datetime.now())+'\n')
     q = False
     try:
         while not q:

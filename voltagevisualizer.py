@@ -38,11 +38,13 @@ currentTime = str(datetime.now()).replace(' ', '_')
 try:
     file = str(input("Input the name of the file you'd like to write to:\n"))
     if file == '':
-        file = 'FourierVis_%s' % currentTime
+        file = 'FourierVis'
 except ValueError:
-    file = 'FourierVis_%s' % currentTime
+    file = 'FourierVis'
 file.replace(' ', '_')
 f = open(file, 'w')
+currentTime = str(datetime.now()).replace(' ', '_')
+f.write(currentTime + '\n')
 f.write("\n begin log for calibration v1")
 f.write(file)
 
