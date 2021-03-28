@@ -59,6 +59,7 @@ def main():
     updatePlt(plt, line, yfDis, hz)
     input("press enter to continue.")
     print("displaying raw voltage of neutral..")
+    ax.clear()
     graph = plt.plot(Xneu, Yneu)[0]
     plt.xlim([0, rf])
     plt.ylim([0, 3.5])

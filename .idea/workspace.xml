@@ -205,13 +205,6 @@
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
     </task>
-    <task id="LOCAL-00037" summary="breakout continued">
-      <created>1614819945998</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1614819945998</updated>
-    </task>
     <task id="LOCAL-00038" summary="breakout continued">
       <created>1614820342898</created>
       <option name="number" value="00038" />
@@ -548,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616962931487</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="kill me">
+      <created>1616963420441</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1616963420442</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -583,11 +583,6 @@
           <url>file://$PROJECT_DIR$/voltagevisualizer.py</url>
           <line>7</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/caliv6.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
