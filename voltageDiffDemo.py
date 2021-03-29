@@ -1,7 +1,7 @@
 from datetime import datetime
 from eogCore import *
 from tkinter import filedialog
-
+import matplotlib.pyplot as plt
 
 def main():
     rf = 10
@@ -30,11 +30,18 @@ def main():
     threshDetect = False
     i = 0
     rfPopulate = rf * hz
+    X = np.linspace(0, rf, hz)
+    graph = plt.plot(X, Y)[0]
+    plt.xlim([0, rf])
+    plt.ylim([0, 3.5])
     while not threshDetect:
         c1 = chanEOG.voltage
         Y[-1] = c1
         for x in range(len(Y) - 1):
             Y[x] = Y[x + 1]
+        graph.set_ydata(Y)
+        plt.draw()
+        plt.pause(1 / hz)
         if i > rfPopulate:
             # this gates any distress signal false positives while the reading frame is being populated
             difMax, difMin, difMean = getVoltDif(Y)

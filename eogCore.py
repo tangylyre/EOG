@@ -62,12 +62,13 @@ def initVals(rf, Hz):
 
 
 def getVoltDif(V):
+    # this function takes list V and compares them against the previous, making dif an n-1 length list.
+    # the extrema of this list is used to generate calibration parameters.
     dif = []
     numPoints = len(V)
     for i in range(numPoints):
         current = V[i]
         if i > 0:
-            print(current)
             dif.append(abs(current - prev))
         prev = current
     difMax = max(dif)
