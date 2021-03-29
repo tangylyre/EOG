@@ -1,3 +1,9 @@
-from datetime import datetime
+f = open('tyler.cali', 'r')
+for line in f:
+    try:
+        thresh = int(line)
+        break
+    except ValueError:
+        pass
 
-print(datetime.now)
+print(thresh)

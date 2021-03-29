@@ -146,6 +146,16 @@ def calibrationV6Diff(t, Hz, eogChan):
     neuMax, neuMin, neuMean = getVoltDif(Yneu)
     disMax, disMin, disMean = getVoltDif(Ydis)
     thresh = generateThreshold(neuMax, disMean, disMax)
+    query = input('Write to file? (y/n)\n')
+    if query == 'y':
+        query = input('File name?\n')
+        if len(query) == 0:
+            fn = 'defaultProfile.cali'
+        else:
+            fn = query + '.cali'
+        f = open(fn, 'w')
+        f.write(thresh)
+        f.close()
     return thresh
 
 

@@ -1,5 +1,6 @@
 from datetime import datetime
 from eogCore import *
+from tkinter import filedialog
 
 
 def main():
@@ -12,7 +13,18 @@ def main():
         return
     query = input("load calibration profile (1) or record new profile (2)")
     if query == '1':
-        thresh = 0
+        f = open(filedialog.askopenfilename(title="Select a Calibration Profile",
+                                            filetypes=(("calibration files",
+                                                        "*.cali*"),
+                                                       ("all files",
+                                                        "*.*"))))
+        for line in f:
+            try:
+                thresh = int(line)
+                break
+            except ValueError:
+                print("invalid file format. proceeding to calibrate manually..")
+                thresh = calibrationV6Diff(rf, hz, chanEOG)
     else:
         thresh = calibrationV6Diff(rf, hz, chanEOG)
     threshDetect = False
