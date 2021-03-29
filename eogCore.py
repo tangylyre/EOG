@@ -2,13 +2,13 @@ from numpy.fft import fftfreq
 import matplotlib.pyplot as plt
 import busio
 import digitalio
-import board
 import adafruit_mcp3xxx.mcp3008 as EOG
 import adafruit_mcp4725 as DAC
 from adafruit_mcp3xxx.analog_in import AnalogIn
 import numpy as np
 from scipy.fft import fft
 import board
+import time
 
 
 def initDAC():
@@ -59,6 +59,94 @@ def initVals(rf, Hz):
     xf = fftfreq(len(Y), 1 / Hz)
     yf = fourTransMag(Y)
     return X, Y, xf, yf
+
+
+def getVoltDif(V):
+    dif = []
+    numPoints = len(V)
+    for i in range(numPoints):
+        current = V[i]
+        if i > 0:
+            print(current)
+            dif.append(abs(current - prev))
+        prev = current
+    difMax = max(dif)
+    difMin = min(dif)
+    difMean = sum(dif) / (numPoints - 1)
+    return difMax, difMin, difMean
+
+
+def generateThreshold(neutralMax, distressMean, distressMax):
+    thresh = distressMean
+    while thresh < neutralMax + 0.1 and thresh < distressMax - 0.1:
+        thresh += 0.01
+    return thresh
+
+
+def evaluateThreshold(difMean, difMax, thresh):
+    # modify this formula dramatically if we're running with voltage differential
+    evalNum = difMean * .75 + difMax * .25
+    if evalNum > thresh:
+        return True
+    else:
+        return False
+
+
+def pullFourierProfile(t, Hz, eogChan):
+    numFrames = t * Hz
+    i = 0
+    j = 0
+    xf = fftfreq(numFrames, 1 / Hz)
+    Y = []
+    X = []
+    t = 0
+    while i < numFrames:
+        X.append(t)
+        t += 1 / Hz
+        i += 1
+        c1 = eogChan.voltage
+        Y.append(c1)
+        time.sleep(1 / Hz)
+        currentTime = int(i) / int(Hz)
+        print("seconds elapsed: %0.2f" % currentTime)
+    yf = fourTransMag(Y)
+    return [X, Y, xf, yf]
+
+
+def calibrationV6Four(t, Hz, eogChan):
+    print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
+    time.sleep(5)
+
+    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
+    print("done.")
+    time.sleep(1)
+
+    print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
+          "stop." % t)
+    time.sleep(5)
+    print("done.")
+    time.sleep(1)
+    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+
+    return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
+
+
+def calibrationV6Diff(t, Hz, eogChan):
+    print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
+    time.sleep(5)
+    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
+    print("done.")
+    time.sleep(1)
+    print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
+          "stop." % t)
+    time.sleep(5)
+    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+    print("done.")
+    time.sleep(1)
+    neuMax, neuMin, neuMean = getVoltDif(Yneu)
+    disMax, disMin, disMean = getVoltDif(Ydis)
+    thresh = generateThreshold(neuMax, disMean, disMax)
+    return thresh
 
 
 def initVolPlot(rf, Hz, voltBounds=[0, 4]):

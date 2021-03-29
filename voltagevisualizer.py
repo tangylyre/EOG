@@ -38,9 +38,9 @@ currentTime = str(datetime.now()).replace(' ', '_')
 try:
     file = str(input("Input the name of the file you'd like to write to:\n"))
     if file == '':
-        file = 'FourierVis'
+        file = 'VoltsVis'
 except ValueError:
-    file = 'FourierVis'
+    file = 'VoltsVis'
 file.replace(' ', '_')
 f = open(file, 'w')
 currentTime = str(datetime.now()).replace(' ', '_')

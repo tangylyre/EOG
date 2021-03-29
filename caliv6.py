@@ -2,47 +2,6 @@ from datetime import datetime
 from eogCore import *
 import time
 
-
-def pullFourierProfile(t, Hz, eogChan):
-    numFrames = t * Hz
-    i = 0
-    j = 0
-    xf = fftfreq(numFrames, 1 / Hz)
-    Y = []
-    X = []
-    t = 0
-    while i < numFrames:
-        X.append(t)
-        t += 1 / Hz
-        i += 1
-        c1 = eogChan.voltage
-        Y.append(c1)
-        time.sleep(1 / Hz)
-        currentTime = int(i) / int(Hz)
-        print("%d dataframes were averaged." % j)
-        print("seconds elapsed: %0.2f" % currentTime)
-    yf = fourTransMag(Y)
-    return [X, Y, xf, yf]
-
-
-def calibrationV3(t, Hz, eogChan):
-    print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
-    time.sleep(5)
-
-    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
-    print("done.")
-    time.sleep(1)
-
-    print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
-          "stop." % t)
-    time.sleep(5)
-    print("done.")
-    time.sleep(1)
-    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
-
-    return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
-
-
 def main():
     rf = 10
     hz = 500
@@ -50,7 +9,7 @@ def main():
     if not chanEOG:
         print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
         return
-    Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis = calibrationV3(rf, hz, chanEOG)
+    Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis = calibrationV6Four(rf, hz, chanEOG)
     fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
     print("displaying fourier of neutral..")
     updatePlt(plt, line, yfNeu, hz)
