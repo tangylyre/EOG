@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fourierDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierDemo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,11 +180,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.calibrationRead" />
-      <item itemvalue="Python.hannemanDataScratch" />
       <item itemvalue="Python.scratch_9" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.hannemanDataScratch" />
+      <item itemvalue="Python.calibrationRead" />
     </list>
     <recent_temporary>
       <list>
@@ -204,13 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00051" summary="calibration v3">
-      <created>1616448113820</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1616448113820</updated>
     </task>
     <task id="LOCAL-00052" summary="calibration v3">
       <created>1616448194299</created>
@@ -548,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617313797856</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="'fuicking fuck fuck'">
+      <created>1617313983072</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1617313983072</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -576,7 +576,8 @@
     <MESSAGE value="kill me" />
     <MESSAGE value="i am so tired" />
     <MESSAGE value="'modifying fourier appraoch'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'modifying fourier appraoch'" />
+    <MESSAGE value="'fuicking fuck fuck'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'fuicking fuck fuck'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

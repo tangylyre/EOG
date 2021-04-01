@@ -23,10 +23,13 @@ def main():
     else:
         filename = calibrationV7Four(rf, hz, chanEOG)
         threshScore, neutral, weighted = calibrationRead(filename)
+    print("Calibration Profile Read Successfully!S")
     threshDetect = False
     i = 0
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     rfPopulate = rf * hz
+    time.sleep(2)
+    print("beginning to monitor..")
     while not threshDetect:
         c1 = chanEOG.voltage
         Y = popNdArray(c1, Y)
@@ -45,7 +48,7 @@ def main():
         i = 0
         f.write("time (s)\tEOG (volts)")
         for data in Y:
-            f.write("%0.2f\t%0.2f" % i, data)
+            f.write(i + "\t" + data)
             i += 1 / hz
         f.close()
 
