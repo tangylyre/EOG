@@ -14,39 +14,26 @@ def main():
         return
     query = input("load calibration profile (1) or record new profile (2)")
     if query == '1':
-        f = open(filedialog.askopenfilename(title="Select a Calibration Profile",
-                                            filetypes=(("calibration files",
-                                                        "*.cali*"),
-                                                       ("all files",
-                                                        "*.*"))))
-        for line in f:
-            try:
-                thresh = int(line)
-                break
-            except ValueError:
-                print("invalid file format. proceeding to calibrate manually..")
-                thresh = calibrationV6Diff(rf, hz, chanEOG)
+        filename = filedialog.askopenfilename(title="Select a Calibration Profile",
+                                              filetypes=(("calibration files",
+                                                          "*.cali*"),
+                                                         ("all files",
+                                                          "*.*")))
+        threshScore, neutral, weighted = calibrationRead(filename)
     else:
-        thresh = calibrationV6Diff(rf, hz, chanEOG)
+        filename = calibrationV7Four(rf, hz, chanEOG)
+        threshScore, neutral, weighted = calibrationRead(filename)
     threshDetect = False
     i = 0
+    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
     rfPopulate = rf * hz
-    X = np.linspace(0, rf, hz)
-    graph = plt.plot(X, Y)[0]
-    plt.xlim([0, rf])
-    plt.ylim([0, 3.5])
     while not threshDetect:
         c1 = chanEOG.voltage
-        Y[-1] = c1
-        for x in range(len(Y) - 1):
-            Y[x] = Y[x + 1]
-        graph.set_ydata(Y)
-        plt.draw()
-        plt.pause(1 / hz)
+        Y = popNdArray(c1, Y)
+        yf = fourTransMag(Y)
         if i > rfPopulate:
             # this gates any distress signal false positives while the reading frame is being populated
-            difMax, difMin, difMean = getVoltDif(Y)
-            threshDetect = evaluateThreshold(difMean, difMax, thresh)
+            threshDetect = distressCheckFourier(yf, neutral, weighted, threshScore)
         i += 1
     print("threshold was exceeded!")
     query = input("write to file? (y/n)\n")

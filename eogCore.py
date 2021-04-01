@@ -187,6 +187,26 @@ def calibrationV7Four(t, Hz, eogChan):
     return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
 
 
+def calibrationRead(filename):
+    try:
+        f = open(filename, 'r')
+        lines = f.readlines()
+        header = lines[0]
+        threshScore = header.split('\t')[1]
+        neutral = []
+        weighted = []
+        lines.pop(0)
+        lines.pop(0)
+        for i in range(len(lines)):
+            line = lines[i].split('\t')
+            neutral.append(float(line[4].replace('\n', '')))
+            weighted.append(float(line[6].replace('\n', '')))
+        return threshScore, neutral, weighted
+    except FileNotFoundError:
+        print("no file found under this filename.")
+        return False
+
+
 def calibrationV6Diff(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)
