@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calibrationRead.py" beforeDir="false" afterPath="$PROJECT_DIR$/calibrationRead.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caliv7.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fourierDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierDemo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,11 +180,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.calibrationRead" />
+      <item itemvalue="Python.hannemanDataScratch" />
       <item itemvalue="Python.scratch_9" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.hannemanDataScratch" />
-      <item itemvalue="Python.calibrationRead" />
     </list>
     <recent_temporary>
       <list>
@@ -207,13 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00050" summary="calibration v3">
-      <created>1616447713785</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1616447713786</updated>
     </task>
     <task id="LOCAL-00051" summary="calibration v3">
       <created>1616448113820</created>
@@ -551,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617312351033</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="'modifying fourier appraoch'">
+      <created>1617313797855</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1617313797856</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

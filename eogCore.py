@@ -146,7 +146,7 @@ def weightedFreqMag(eqFour, weightedProfile):
         currentMag = eqFour[i]
         currentWeight = weightedProfile[i]
         score += currentMag * currentWeight
-    return score
+    return float(score)
 
 
 def makeFourierThresholds(neuFour, disFour):
@@ -192,7 +192,7 @@ def calibrationRead(filename):
         f = open(filename, 'r')
         lines = f.readlines()
         header = lines[0]
-        threshScore = header.split('\t')[1]
+        threshScore = float(header.split('\t')[1])
         neutral = []
         weighted = []
         lines.pop(0)
