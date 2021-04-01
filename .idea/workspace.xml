@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
-      <change afterPath="$PROJECT_DIR$/hannemanDataScratch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hannemandatatransposed.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/caliv6.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voltageDiffDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/voltageDiffDemo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00042" summary="breakout continued">
-      <created>1614821290943</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1614821290943</updated>
     </task>
     <task id="LOCAL-00043" summary="breakout continued">
       <created>1614821306600</created>
@@ -552,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617052253970</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="'modifying fourier appraoch'">
+      <created>1617306844273</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1617306844273</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -579,7 +576,8 @@
     <MESSAGE value="add" />
     <MESSAGE value="kill me" />
     <MESSAGE value="i am so tired" />
-    <option name="LAST_COMMIT_MESSAGE" value="i am so tired" />
+    <MESSAGE value="'modifying fourier appraoch'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'modifying fourier appraoch'" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

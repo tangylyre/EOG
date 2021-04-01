@@ -114,10 +114,24 @@ def pullFourierProfile(t, Hz, eogChan):
     return [X, Y, xf, yf]
 
 
-def makeFourierThresholds(neuFour, disFour):
+def subtractFourier(list1, list2):
+    # runs through a numpy array and subtracts list 2 from list 1 element by element.
+    # if the value is negative, just make it zero. This will make downstream of weighted frequencies.
+    subtracted = list1
+    if len(list1) == len(list2):
+        i = 0
+        while i <= len(list1):
+            subtracted[i] = list1[i] - list2[i]
+            if subtracted[i] < 0:
+                subtracted[i] = 0
+    return subtracted
+
+
+def makeFourierThresholds(neuFour, disFour, freqFour):
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
-    equalizeFour = neuFour - disFour
+    equalizeFour = subtractFourier(disFour, neuFour)
+
     return equalizeFour
 
 
