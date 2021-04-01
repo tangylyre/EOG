@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from numpy.fft import fftfreq
 import matplotlib.pyplot as plt
 import busio
