@@ -114,6 +114,13 @@ def pullFourierProfile(t, Hz, eogChan):
     return [X, Y, xf, yf]
 
 
+def makeFourierThresholds(neuFour, disFour):
+    # this function will accept the fourier profiles of neutral data and distress data, subtract them,
+    # and generate a weighted criteria for distress.
+    equalizeFour = neuFour - disFour
+    return equalizeFour
+
+
 def calibrationV6Four(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)

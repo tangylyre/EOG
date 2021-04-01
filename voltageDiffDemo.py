@@ -3,6 +3,7 @@ from eogCore import *
 from tkinter import filedialog
 import matplotlib.pyplot as plt
 
+
 def main():
     rf = 10
     hz = 500

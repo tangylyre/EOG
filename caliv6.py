@@ -28,8 +28,10 @@ def main():
     updatePlt(plt, line, Ydis, hz)
     input("press enter to continue.")
     query = input("write to file? (y/n)")
+    eq = makeFourierThresholds(Yneu, Ydis)
+    print(eq)
     if query == 'y':
-        filename = input("input filename, or none for default")
+        filename = input("input filename, or none for default\n")
         if len(filename) < 1:
             filename = "calibration_profile_%dHz_%dseconds.tsv" % (hz, rf)
         f = open(filename, 'w')
