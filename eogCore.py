@@ -124,15 +124,40 @@ def subtractFourier(list1, list2):
             subtracted[i] = list1[i] - list2[i]
             if subtracted[i] < 0:
                 subtracted[i] = 0
+            i += 1
     return subtracted
 
 
-def makeFourierThresholds(neuFour, disFour, freqFour):
+def makeWeightProfile(eqFour):
+    # accepts a normalized equalized profile, assigns each frequency a weight from 0 - 1 in relation to this numpy
+    # array's maxima.
+    weightedProfile = eqFour
+    maxVal = np.amax(eqFour)
+    for i in range(len(eqFour)):
+        weightedProfile[i] = eqFour[i]/maxVal
+    return weightedProfile
+
+
+def weightedFreqMag(eqFour, weightedProfile):
+    # accepts a fourier profile equalized against neutral dataset and a frequency set. generates a score weighing in
+    # favor of the weighted profile
+    score = 0
+    i = 0
+    while i <= len(eqFour):
+        currentMag = eqFour[i]
+        currentWeight = weightedProfile[i]
+        score += currentMag * currentWeight
+        i += 1
+    return score
+
+
+def makeFourierThresholds(neuFour, disFour):
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
-    equalizeFour = subtractFourier(disFour, neuFour)
-
-    return equalizeFour
+    equalizedDistress = subtractFourier(disFour, neuFour)
+    weightedProfile = makeWeightProfile(equalizedDistress)
+    threshScore = weightedFreqMag(equalizedDistress, weightedProfile)
+    return weightedProfile, threshScore
 
 
 def calibrationV6Four(t, Hz, eogChan):

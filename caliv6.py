@@ -28,8 +28,9 @@ def main():
     updatePlt(plt, line, Ydis, hz)
     input("press enter to continue.")
     query = input("write to file? (y/n)")
-    eq = makeFourierThresholds(Yneu, Ydis, xfDis)
-    print(eq)
+    weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
+    print(weightedProfile)
+    print(threshScore)
     if query == 'y':
         filename = input("input filename, or none for default\n")
         if len(filename) < 1:
