@@ -133,7 +133,7 @@ def makeWeightProfile(eqFour):
     weightedProfile = eqFour
     maxVal = np.amax(eqFour)
     for i in range(len(eqFour)):
-        weightedProfile[i] = eqFour[i]/maxVal
+        weightedProfile[i] = eqFour[i] / maxVal
     return weightedProfile
 
 
@@ -154,11 +154,21 @@ def makeFourierThresholds(neuFour, disFour):
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)
     weightedProfile = makeWeightProfile(equalizedDistress)
-    threshScore = weightedFreqMag(equalizedDistress, weightedProfile)
+    threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.75
     return weightedProfile, threshScore
 
 
-def calibrationV6Four(t, Hz, eogChan):
+def distressCheckFourier(currentFour, neutralProfile, weightedProfile, threshScore):
+    eq = subtractFourier(currentFour, neutralProfile)
+    score = weightedFreqMag(eq, weightedProfile)
+    if score > threshScore:
+        return True
+    else:
+        print("threshold not reached current value is %f\nrequires %f" % score, threshScore)
+        return False
+
+
+def calibrationV7Four(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)
 
@@ -173,6 +183,7 @@ def calibrationV6Four(t, Hz, eogChan):
     time.sleep(1)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
 
+    weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
     return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
 
 

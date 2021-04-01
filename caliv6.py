@@ -2,6 +2,25 @@ from datetime import datetime
 from eogCore import *
 import time
 
+
+def calibrationV6Four(t, Hz, eogChan):
+    print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
+    time.sleep(5)
+
+    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
+    print("done.")
+    time.sleep(1)
+
+    print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
+          "stop." % t)
+    time.sleep(5)
+    print("done.")
+    time.sleep(1)
+    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+
+    return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
+
+
 def main():
     rf = 10
     hz = 500
