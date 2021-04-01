@@ -48,7 +48,7 @@ def main():
         i = 0
         f.write("time (s)\tEOG (volts)")
         for data in Y:
-            f.write(str(i) + "\t" + str(data))
+            f.write(str(i) + "\t" + str(data)+ '\n')
             i += 1 / hz
         f.close()
 
