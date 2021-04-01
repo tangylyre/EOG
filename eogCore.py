@@ -1,3 +1,4 @@
+import datetime
 from numpy.fft import fftfreq
 import matplotlib.pyplot as plt
 import busio
@@ -171,20 +172,29 @@ def distressCheckFourier(currentFour, neutralProfile, weightedProfile, threshSco
 def calibrationV7Four(t, Hz, eogChan):
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)
-
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
     print("done.")
     time.sleep(1)
-
     print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
           "stop." % t)
     time.sleep(5)
-    print("done.")
-    time.sleep(1)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
-
+    time.sleep(1)
+    print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
-    return [Xneu, Yneu, Ydis, xfDis, yfNeu, yfDis]
+    filename = input("input filename, or none for default\n")
+    if len(filename) < 1:
+        filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
+    f = open(filename, 'w')
+    currentTime = str(datetime.now()).replace(' ', '_')
+    f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
+    f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
+    for i in range(len(yfNeu)):
+        line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
+            yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
+        f.write(line)
+    f.close()
+    return filename
 
 
 def calibrationRead(filename):

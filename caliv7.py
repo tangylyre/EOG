@@ -16,22 +16,18 @@ def calibrationV7Four(t, Hz, eogChan):
     time.sleep(1)
     print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
-    query = input("write to file? (y/n)\n")
-    if query == 'y':
-        filename = input("input filename, or none for default\n")
-        if len(filename) < 1:
-            filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
-        f = open(filename, 'w')
-        currentTime = str(datetime.now()).replace(' ', '_')
-        f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
-        f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
-        for i in range(len(yfNeu)):
-            line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
-                yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
-            f.write(line)
-        f.close()
-    else:
-        filename = ''
+    filename = input("input filename, or none for default\n")
+    if len(filename) < 1:
+        filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
+    f = open(filename, 'w')
+    currentTime = str(datetime.now()).replace(' ', '_')
+    f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
+    f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
+    for i in range(len(yfNeu)):
+        line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
+            yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
+        f.write(line)
+    f.close()
     return filename
 
 
