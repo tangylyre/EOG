@@ -23,7 +23,7 @@ def main():
     else:
         filename = calibrationV7Four(rf, hz, chanEOG)
         threshScore, neutral, weighted = calibrationRead(filename)
-    print("Calibration Profile Read Successfully!S")
+    print("Calibration Profile Read Successfully!")
     threshDetect = False
     i = 0
     X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
@@ -48,7 +48,7 @@ def main():
         i = 0
         f.write("time (s)\tEOG (volts)")
         for data in Y:
-            f.write(i + "\t" + data)
+            f.write(str(i) + "\t" + str(data))
             i += 1 / hz
         f.close()
 
