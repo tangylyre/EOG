@@ -20,7 +20,7 @@ def calibrationV7Four(t, Hz, eogChan):
     if query == 'y':
         filename = input("input filename, or none for default\n")
         if len(filename) < 1:
-            filename = "calibration_profile_%dHz_%dseconds.tsv" % (hz, rf)
+            filename = "calibration_profile_%dHz_%dseconds.tsv" % (Hz, t)
         f = open(filename, 'w')
         currentTime = str(datetime.now()).replace(' ', '_')
         f.write('threshold score' + '\t' + threshScore + '\t' + 'current time:\t' + currentTime + '\n')
