@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
-      <change afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calibrationRead.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caliv6.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caliv7.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hannemandatatransposed.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/hannemandatatransposed.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,28 @@
       <recent name="C:\Users\Cycas revoluta\Documents\github\EOG\week 6" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.hannemanDataScratch">
+  <component name="RunManager" selected="Python.calibrationRead">
+    <configuration name="calibrationRead" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="EOG" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/calibrationRead.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="hannemanDataScratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EOG" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -89,27 +110,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hannemanDataScratch.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="scratch_8" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="EOG" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_8.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,19 +182,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.scratch_8" />
       <item itemvalue="Python.scratch_9" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.hannemanDataScratch" />
+      <item itemvalue="Python.calibrationRead" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.calibrationRead" />
         <item itemvalue="Python.hannemanDataScratch" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python.scratch_9" />
-        <item itemvalue="Python.scratch_8" />
       </list>
     </recent_temporary>
   </component>
@@ -206,13 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00047" summary="calibration v3">
-      <created>1616447217243</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1616447217243</updated>
     </task>
     <task id="LOCAL-00048" summary="calibration v3">
       <created>1616447516024</created>
@@ -550,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617309224871</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="'modifying fourier appraoch'">
+      <created>1617310392169</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1617310392169</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

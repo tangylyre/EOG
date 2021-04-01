@@ -23,7 +23,7 @@ def calibrationV7Four(t, Hz, eogChan):
             filename = "calibration_profile_%dHz_%dseconds.tsv" % (hz, rf)
         f = open(filename, 'w')
         currentTime = str(datetime.now()).replace(' ', '_')
-        f.write('threshold score' + '\t' + 'current time:\t' + currentTime + '\n')
+        f.write('threshold score' + '\t' + threshScore + '\t' + 'current time:\t' + currentTime + '\n')
         f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
         for i in range(len(yfNeu)):
             line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
