@@ -120,11 +120,10 @@ def subtractFourier(list1, list2):
     subtracted = list1
     if len(list1) == len(list2):
         i = 0
-        while i <= len(list1):
+        for i in range(len(list1)):
             subtracted[i] = list1[i] - list2[i]
             if subtracted[i] < 0:
                 subtracted[i] = 0
-            i += 1
     return subtracted
 
 
@@ -143,11 +142,10 @@ def weightedFreqMag(eqFour, weightedProfile):
     # favor of the weighted profile
     score = 0
     i = 0
-    while i <= len(eqFour):
+    for i in range(len(eqFour)):
         currentMag = eqFour[i]
         currentWeight = weightedProfile[i]
         score += currentMag * currentWeight
-        i += 1
     return score
 
 
