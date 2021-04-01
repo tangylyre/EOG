@@ -12,9 +12,9 @@ def calibrationV7Four(t, Hz, eogChan):
     print("Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to "
           "stop." % t)
     time.sleep(5)
-    print("done.")
-    time.sleep(1)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+    time.sleep(1)
+    print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
     query = input("write to file? (y/n)\n")
     if query == 'y':
@@ -23,7 +23,7 @@ def calibrationV7Four(t, Hz, eogChan):
             filename = "calibration_profile_%dHz_%dseconds.tsv" % (Hz, t)
         f = open(filename, 'w')
         currentTime = str(datetime.now()).replace(' ', '_')
-        f.write('threshold score' + '\t' + threshScore + '\t' + 'current time:\t' + currentTime + '\n')
+        f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
         f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
         for i in range(len(yfNeu)):
             line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(

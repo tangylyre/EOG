@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/caliv7.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,13 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00048" summary="calibration v3">
-      <created>1616447516024</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1616447516024</updated>
     </task>
     <task id="LOCAL-00049" summary="calibration v3">
       <created>1616447631453</created>
@@ -547,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617310392169</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="'modifying fourier appraoch'">
+      <created>1617312229767</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1617312229767</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
