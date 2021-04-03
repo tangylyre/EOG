@@ -13,6 +13,7 @@ def calibrationV7Four(t, Hz, eogChan):
           "stop." % t)
     time.sleep(5)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
+    dis = Ydis
     time.sleep(1)
     print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
@@ -24,6 +25,7 @@ def calibrationV7Four(t, Hz, eogChan):
     updatePlt(plt, line, yfDis, Hz)
     input("press enter to continue.")
     print("displaying weightedProfile..")
+    plt.ylim([0, 1])
     updatePlt(plt, line, weightedProfile, Hz)
     input("press enter to continue.")
     print("displaying raw voltage of neutral..")
@@ -34,7 +36,7 @@ def calibrationV7Four(t, Hz, eogChan):
     input("press enter to continue.")
     graph.set_ydata(Ydis)
     print("displaying raw voltage of distress..")
-    updatePlt(plt, line, Ydis, Hz)
+    updatePlt(plt, line, dis, Hz)
     input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
@@ -44,7 +46,7 @@ def calibrationV7Four(t, Hz, eogChan):
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
     f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
     for i in range(len(yfNeu)):
-        line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
+        line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(dis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
             yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
         f.write(line)
     f.close()
