@@ -23,6 +23,9 @@ def calibrationV7Four(t, Hz, eogChan):
     print("displaying fourier of distress..")
     updatePlt(plt, line, yfDis, Hz)
     input("press enter to continue.")
+    print("displaying fourier of distress..")
+    updatePlt(plt, line, weightedProfile, Hz)
+    input("press enter to continue.")
     print("displaying raw voltage of neutral..")
     ax.clear()
     graph = plt.plot(Xneu, Yneu)[0]
@@ -31,7 +34,7 @@ def calibrationV7Four(t, Hz, eogChan):
     input("press enter to continue.")
     graph.set_ydata(Ydis)
     print("displaying raw voltage of distress..")
-    updatePlt(plt, line, Ydis, hz)
+    updatePlt(plt, line, Ydis, Hz)
     input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
