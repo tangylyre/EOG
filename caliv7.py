@@ -25,6 +25,7 @@ def calibrationV7Four(t, Hz, eogChan):
     updatePlt(plt, line, yfDis, Hz)
     input("press enter to continue.")
     print("displaying weightedProfile..")
+    plt.xlim([0, 50])
     plt.ylim([0, 1])
     updatePlt(plt, line, weightedProfile, Hz)
     input("press enter to continue.")
