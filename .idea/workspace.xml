@@ -20,27 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
-      <change afterPath="$PROJECT_DIR$/archive/bo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/breakoutTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/calibration_profile_500Hz_10seconds.cali" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/calibration_profile_500Hz_10seconds.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/distress_flag_profile_500Hz_10seconds.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/hannemandatatransposed.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/hannemanmar31" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/archive/testset.cali" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/breakoutTest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calibration_profile_500Hz_10seconds.cali" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calibration_profile_500Hz_10seconds.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/distress_flag_profile_500Hz_10seconds.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fourierDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierDemo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hannemandatatransposed.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hannemanmar31" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testset.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/caliv7.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,11 +180,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.calibrationRead" />
+      <item itemvalue="Python.hannemanDataScratch" />
       <item itemvalue="Python.scratch_9" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.hannemanDataScratch" />
-      <item itemvalue="Python.calibrationRead" />
     </list>
     <recent_temporary>
       <list>
