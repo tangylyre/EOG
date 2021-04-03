@@ -165,7 +165,7 @@ def distressCheckFourier(currentFour, neutralProfile, weightedProfile, threshSco
     if score > threshScore:
         return True
     else:
-        print("threshold not reached current value is %f\nrequires %f" % score, threshScore)
+        print("threshold not reached current value is "+score+"\nrequires "+threshScore)
         return False
 
 
