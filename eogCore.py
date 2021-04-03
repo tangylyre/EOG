@@ -242,7 +242,7 @@ def calibrationV6Diff(t, Hz, eogChan):
         else:
             fn = query + '.cali'
         f = open(fn, 'w')
-        f.write(thresh)
+        f.write(str(thresh))
         f.close()
     return thresh
 
