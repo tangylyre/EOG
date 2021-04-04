@@ -97,7 +97,6 @@ def evaluateThreshold(difMean, difMax, thresh):
 def pullFourierProfile(t, Hz, eogChan):
     numFrames = t * Hz
     i = 0
-    j = 0
     xf = fftfreq(numFrames, 1 / Hz)
     Y = []
     X = []
@@ -112,12 +111,12 @@ def pullFourierProfile(t, Hz, eogChan):
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
     yf = fourTransMag(Y)
-    return [X, Y, xf[0:500], fourierFilter(yf)]
+    return [X, Y, xf[0:501], fourierFilter(yf)]
 
 
 def fourierFilter(yf):
     # acts as a bandpass filter from 1 - 50 Hz, setting values <1 to 0 and removing frequencies past 50Hz.
-    yf = yf[0:500]
+    yf = yf[0:501]
     for i in range(10):
         yf[i] = 0
     return yf
@@ -272,7 +271,7 @@ def initVolPlot(rf, Hz, voltBounds=[0, 4]):
     return X, Y, fig, plt, ax, line
 
 
-def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
+def initPlot(rf, Hz, freqBounds=[0, 50], magBounds=[0, 100]):
     X, Y, xf, yf = initVals(rf, Hz)
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -287,7 +286,7 @@ def initPlot(rf, Hz, freqBounds=[0, 200], magBounds=[0, 100]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
-def initPlotFour(xf, yf, freqBounds=[0, 200], magBounds=[0, 100]):
+def initPlotFour(xf, yf, freqBounds=[0, 50], magBounds=[0, 100]):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_ylabel('Magnitude (Volts)')

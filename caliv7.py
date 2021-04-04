@@ -13,7 +13,7 @@ def calibrationV7Four(t, Hz, eogChan):
           "stop." % t)
     time.sleep(5)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan)
-    dis = Ydis
+    print(Ydis)
     time.sleep(1)
     print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
@@ -35,10 +35,12 @@ def calibrationV7Four(t, Hz, eogChan):
     plt.xlim([0, t])
     plt.ylim([0, 3.5])
     input("press enter to continue.")
-    graph.set_ydata(dis)
+    ax.clear()
+    graph = plt.plot(Xneu, Ydis)[0]
     print("displaying raw voltage of distress..")
     input("press enter to continue.")
     filename = input("input filename, or none for default\n")
+    print(Ydis)
     if len(filename) < 1:
         filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
     f = open(filename, 'w')
