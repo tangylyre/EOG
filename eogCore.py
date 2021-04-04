@@ -112,7 +112,15 @@ def pullFourierProfile(t, Hz, eogChan):
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
     yf = fourTransMag(Y)
-    return [X, Y, xf, yf]
+    return [X, Y, xf[0:500], fourierFilter(yf)]
+
+
+def fourierFilter(yf):
+    # acts as a bandpass filter from 1 - 50 Hz, setting values <1 to 0 and removing frequencies past 50Hz.
+    yf = yf[0:500]
+    for i in range(10):
+        yf[i] = 0
+    return yf
 
 
 def subtractFourier(list1, list2):

@@ -35,9 +35,8 @@ def calibrationV7Four(t, Hz, eogChan):
     plt.xlim([0, t])
     plt.ylim([0, 3.5])
     input("press enter to continue.")
-    graph.set_ydata(Ydis)
+    graph.set_ydata(dis)
     print("displaying raw voltage of distress..")
-    updatePlt(plt, line, dis, Hz)
     input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
