@@ -42,6 +42,8 @@ def calibrationV7Four(t, Hz, eogChan):
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
         filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
+    else:
+        filename = filename+'.cali'
     f = open(filename, 'w')
     currentTime = str(datetime.now()).replace(' ', '_')
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
