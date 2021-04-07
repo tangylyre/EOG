@@ -20,8 +20,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurcali2.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurcali3.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurcali4.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurcali6.cali.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurmar3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurvoltage.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/arthurvolts.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/cali5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/calibration_profile_500Hz_10seconds.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/distress_flag_profile_500Hz_10seconds.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/dummy.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/dummydata.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali1.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali2.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali2.xlsx.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali3.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali4.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali5.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/joecali6.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/mollycali1.cali" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data 4.7.21/mollycali2.cali" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eogCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourierVis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VoltsVis" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurcali2.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurcali3.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurcali4.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurcali6.cali.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurmar3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurvoltage.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurvolts.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cali5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calibration_profile_500Hz_10seconds.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/caliv7.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/caliv7noplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/caliv7noplot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/distress_flag_profile_500Hz_10seconds.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dummy.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dummydata.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali1.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali2.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali3.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali4.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali5.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/joecali6.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollycali1.cali" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mollycali2.cali" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,13 +248,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00072" summary="add">
-      <created>1616878509952</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1616878509952</updated>
     </task>
     <task id="LOCAL-00073" summary="add">
       <created>1616878899265</created>
@@ -548,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617821985811</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="experimental setup 4.7.21">
+      <created>1617823120912</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1617823120912</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
