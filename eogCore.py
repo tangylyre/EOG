@@ -111,13 +111,14 @@ def evaluateThreshold(difMean, difMax, thresh):
         return False
 
 
-def pullFourierProfile(t, Hz, eogChan):
+def pullFourierProfile(t, Hz, eogChan, voiceEngine):
     numFrames = t * Hz
     i = 0
     xf = fftfreq(numFrames, 1 / Hz)
     Y = []
     X = []
     t = 0
+    speakString("Beginning Test..", voiceEngine)
     while i < numFrames:
         X.append(t)
         t += 1 / Hz
@@ -127,6 +128,10 @@ def pullFourierProfile(t, Hz, eogChan):
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
+        if currentTime == t/2:
+            s = "%d seconds remain."
+            speakString(s, voiceEngine)
+    speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
     return [X, Yunfiltered, xf[0:501], fourierFilter(yf)]
