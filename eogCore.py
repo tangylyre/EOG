@@ -10,6 +10,23 @@ import numpy as np
 from scipy.fft import fft
 import board
 import time
+import pyttsx3
+
+
+def initSpeechEngine():
+    engine = pyttsx3.init()
+    engine.setProperty('volume', 1.0)
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    engine.setProperty('rate', 125)  # setting up new voice rate
+    return engine
+
+
+def speakString(s, engine):
+    engine.say(s)
+    engine.runAndWait()
+    engine.stop()
+    return
 
 
 def initDAC():
@@ -173,7 +190,7 @@ def distressCheckFourier(currentFour, neutralProfile, weightedProfile, threshSco
     if score > threshScore:
         return True
     else:
-        print("threshold not reached current value is "+str(score)+"\nrequires "+str(threshScore))
+        print("threshold not reached current value is " + str(score) + "\nrequires " + str(threshScore))
         return False
 
 
@@ -217,7 +234,7 @@ def calibrationV7Four(t, Hz, eogChan):
     if len(filename) < 1:
         filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
     else:
-        filename = filename+'.cali'
+        filename = filename + '.cali'
     f = open(filename, 'w')
     currentTime = str(datetime.now()).replace(' ', '_')
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
