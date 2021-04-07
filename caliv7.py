@@ -4,7 +4,7 @@ import time
 
 
 def calibrationV7Four(t, Hz, eogChan):
-    query = input("please input 'y' if you want to display plots, enter if not.")
+    query = input("please input 'y' if you want to display plots, enter if not.\n")
     if query == 'y':
         displayPlots = True
     else:
@@ -64,7 +64,7 @@ def calibrationV7Four(t, Hz, eogChan):
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
     f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
     for i in range(len(Xneu)):
-        if i < range(len(yfNeu)):
+        if i < len(yfNeu):
             line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
                 yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
         else:

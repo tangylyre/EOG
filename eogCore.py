@@ -17,7 +17,7 @@ def initSpeechEngine():
     engine = pyttsx3.init()
     engine.setProperty('volume', 1.0)
     voices = engine.getProperty('voices')
-    #engine.setProperty('voice', voices[0].id)
+    # engine.setProperty('voice', voices[0].id)
     engine.setProperty('rate', 125)  # setting up new voice rate
     return engine
 
@@ -112,6 +112,7 @@ def evaluateThreshold(difMean, difMax, thresh):
 
 
 def pullFourierProfile(t, Hz, eogChan, voiceEngine):
+    halfwayFlag = True
     numFrames = t * Hz
     i = 0
     xf = fftfreq(numFrames, 1 / Hz)
@@ -128,9 +129,10 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
-        if currentTime == t/2:
+        if currentTime >= t / 2 and halfwayFlag:
             s = "%d seconds remain."
             speakString(s, voiceEngine)
+            halfwayFlag = False
     speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
@@ -200,10 +202,15 @@ def distressCheckFourier(currentFour, neutralProfile, weightedProfile, threshSco
 
 
 def calibrationV7Four(t, Hz, eogChan):
+    query = input("please input 'y' if you want to display plots, enter if not.\n")
+    if query == 'y':
+        displayPlots = True
+    else:
+        displayPlots = False
     engine = initSpeechEngine()
     s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
     print(s)
-    speakString(s,engine)
+    speakString(s, engine)
     time.sleep(5)
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine)
     print("done.")
@@ -216,39 +223,40 @@ def calibrationV7Four(t, Hz, eogChan):
     time.sleep(1)
     print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
-    fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
-    print("displaying fourier of neutral..")
-    speakString("displaying fourier of neutral..", engine)
-    updatePlt(plt, line, yfNeu, Hz)
-    input("press enter to continue.")
-    print("displaying fourier of distress..")
-    speakString("displaying fourier of distress..", engine)
-    updatePlt(plt, line, yfDis, Hz)
-    input("press enter to continue.")
-    print("displaying weightedProfile..")
-    speakString("displaying fourier of weighted profile..", engine)
-    plt.xlim([0, 50])
-    plt.ylim([0, 1])
-    ax.clear()
-    graph = plt.plot(xfDis, weightedProfile)[0]
-    input("press enter to continue.")
-    print("displaying raw voltage of neutral..")
-    speakString("displaying raw voltage of neutral..", engine)
-    ax.clear()
-    graph = plt.plot(Xneu, Yneu)[0]
-    plt.xlim([0, t])
-    plt.ylim([0, 3.5])
-    input("press enter to continue.")
-    ax.clear()
-    graph = plt.plot(Xneu, Ydis)[0]
-    print("displaying raw voltage of distress..")
-    speakString("displaying raw voltage of distress..", engine)
-    input("press enter to continue.")
+    if displayPlots:
+        fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
+        print("displaying fourier of neutral..")
+        speakString("displaying fourier of neutral..", engine)
+        updatePlt(plt, line, yfNeu, Hz)
+        input("press enter to continue.")
+        print("displaying fourier of distress..")
+        speakString("displaying fourier of distress..", engine)
+        updatePlt(plt, line, yfDis, Hz)
+        input("press enter to continue.")
+        print("displaying weightedProfile..")
+        speakString("displaying fourier of weighted profile..", engine)
+        plt.xlim([0, 50])
+        plt.ylim([0, 1])
+        ax.clear()
+        graph = plt.plot(xfDis, weightedProfile)[0]
+        input("press enter to continue.")
+        print("displaying raw voltage of neutral..")
+        speakString("displaying raw voltage of neutral..", engine)
+        ax.clear()
+        graph = plt.plot(Xneu, Yneu)[0]
+        plt.xlim([0, t])
+        plt.ylim([0, 3.5])
+        input("press enter to continue.")
+        ax.clear()
+        graph = plt.plot(Xneu, Ydis)[0]
+        print("displaying raw voltage of distress..")
+        speakString("displaying raw voltage of distress..", engine)
+        input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
         filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)
     else:
-        filename = filename+'.cali'
+        filename = filename + '.cali'
     f = open(filename, 'w')
     currentTime = str(datetime.now()).replace(' ', '_')
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
@@ -262,7 +270,6 @@ def calibrationV7Four(t, Hz, eogChan):
         f.write(line)
     f.close()
     return filename
-
 
 
 def calibrationRead(filename):
