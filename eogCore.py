@@ -163,7 +163,7 @@ def makeFourierThresholds(neuFour, disFour):
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)
     weightedProfile = makeWeightProfile(equalizedDistress)
-    threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.75
+    threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.65
     return fourierFilter(weightedProfile), threshScore
 
 
