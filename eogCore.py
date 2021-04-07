@@ -18,8 +18,8 @@ def initSpeechEngine():
     engine.setProperty('volume', 1.0)
     voices = engine.getProperty('voices')
     print(voices)
-    engine.setProperty('voice', voices[0].id)
-    engine.setProperty('rate', 125)  # setting up new voice rate
+    #engine.setProperty('voice', voices[0].id)
+    #engine.setProperty('rate', 125)  # setting up new voice rate
     return engine
 
 
