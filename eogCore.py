@@ -110,8 +110,9 @@ def pullFourierProfile(t, Hz, eogChan):
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
+    Yunfiltered = Y
     yf = fourTransMag(Y)
-    return [X, Y, xf[0:501], fourierFilter(yf)]
+    return [X, Yunfiltered, xf[0:501], fourierFilter(yf)]
 
 
 def fourierFilter(yf):
