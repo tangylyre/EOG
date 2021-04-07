@@ -129,7 +129,7 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
         time.sleep(1 / Hz)
         currentTime = int(i) / int(Hz)
         print("seconds elapsed: %0.2f" % currentTime)
-        if currentTime >= t / 2 and halfwayFlag:
+        if i >= numFrames / 2 and halfwayFlag:
             s = "%d seconds remain."
             speakString(s, voiceEngine)
             halfwayFlag = False
