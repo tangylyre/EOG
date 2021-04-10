@@ -119,7 +119,7 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
     Y = []
     X = []
     t = 0
-    #speakString("Beginning Test..", voiceEngine)
+    # speakString("Beginning Test..", voiceEngine)
     while i < numFrames:
         X.append(t)
         t += 1 / Hz
@@ -131,9 +131,9 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
         print("seconds elapsed: %0.2f" % currentTime)
         if i >= numFrames / 2 and halfwayFlag:
             s = "%d seconds remain." % currentTime
-            #speakString(s, voiceEngine)
+            # speakString(s, voiceEngine)
             halfwayFlag = False
-    #speakString("Finished.", voiceEngine)
+    # speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
     return [X, Yunfiltered, xf[0:201], fourierFilter(yf)]
@@ -175,9 +175,7 @@ def weightedFreqMag(eqFour, weightedProfile):
     # favor of the weighted profile
     score = 0
     i = 0
-    eqFour = eqFour[0:200]
-    print(len(eqFour))
-    print(len(weightedProfile))
+    eqFour = eqFour[0:200]  # fix this
     for i in range(len(eqFour)):
         currentMag = eqFour[i]
         currentWeight = weightedProfile[i]
@@ -190,7 +188,7 @@ def makeFourierThresholds(neuFour, disFour):
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)
     weightedProfile = makeWeightProfile(equalizedDistress)
-    threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.65
+    threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.85
     return fourierFilter(weightedProfile), threshScore
 
 
@@ -213,14 +211,14 @@ def calibrationV7Four(t, Hz, eogChan):
     engine = initSpeechEngine()
     s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
     print(s)
-    #speakString(s, engine)
+    # speakString(s, engine)
     time.sleep(5)
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine)
     print("done.")
     time.sleep(1)
     s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop." % t
     print(s)
-    #speakString(s, engine)
+    # speakString(s, engine)
     time.sleep(5)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine)
     time.sleep(1)
@@ -229,22 +227,22 @@ def calibrationV7Four(t, Hz, eogChan):
     if displayPlots:
         fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
         print("displaying fourier of neutral..")
-        #speakString("displaying fourier of neutral..", engine)
+        # speakString("displaying fourier of neutral..", engine)
         updatePlt(plt, line, yfNeu, Hz)
         input("press enter to continue.")
         print("displaying fourier of distress..")
-        #speakString("displaying fourier of distress..", engine)
+        # speakString("displaying fourier of distress..", engine)
         updatePlt(plt, line, yfDis, Hz)
         input("press enter to continue.")
         print("displaying weightedProfile..")
-        #speakString("displaying fourier of weighted profile..", engine)
+        # speakString("displaying fourier of weighted profile..", engine)
         plt.xlim([0, 20])
         plt.ylim([0, 1])
         ax.clear()
         graph = plt.plot(xfDis, weightedProfile)[0]
         input("press enter to continue.")
         print("displaying raw voltage of neutral..")
-        #speakString("displaying raw voltage of neutral..", engine)
+        # speakString("displaying raw voltage of neutral..", engine)
         ax.clear()
         graph = plt.plot(Xneu, Yneu)[0]
         plt.xlim([0, t])
@@ -253,7 +251,7 @@ def calibrationV7Four(t, Hz, eogChan):
         ax.clear()
         graph = plt.plot(Xneu, Ydis)[0]
         print("displaying raw voltage of distress..")
-        #speakString("displaying raw voltage of distress..", engine)
+        # speakString("displaying raw voltage of distress..", engine)
         input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
