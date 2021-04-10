@@ -175,8 +175,7 @@ def weightedFreqMag(eqFour, weightedProfile):
     # favor of the weighted profile
     score = 0
     i = 0
-    print(len(eqFour))
-    print(len(weightedProfile))
+    eqFour = fourierFilter(eqFour)
     for i in range(len(eqFour)):
         currentMag = eqFour[i]
         currentWeight = weightedProfile[i]
