@@ -136,12 +136,12 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
     speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
-    return [X, Yunfiltered, xf[0:501], fourierFilter(yf)]
+    return [X, Yunfiltered, xf[0:201], fourierFilter(yf)]
 
 
 def fourierFilter(yf):
     # acts as a bandpass filter from 1 - 50 Hz, setting values <1 to 0 and removing frequencies past 50Hz.
-    yf = yf[0:501]
+    yf = yf[0:201]
     for i in range(10):
         yf[i] = 0
     return yf
@@ -235,7 +235,7 @@ def calibrationV7Four(t, Hz, eogChan):
         input("press enter to continue.")
         print("displaying weightedProfile..")
         speakString("displaying fourier of weighted profile..", engine)
-        plt.xlim([0, 50])
+        plt.xlim([0, 20])
         plt.ylim([0, 1])
         ax.clear()
         graph = plt.plot(xfDis, weightedProfile)[0]
