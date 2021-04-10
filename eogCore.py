@@ -119,7 +119,7 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
     Y = []
     X = []
     t = 0
-    speakString("Beginning Test..", voiceEngine)
+    #speakString("Beginning Test..", voiceEngine)
     while i < numFrames:
         X.append(t)
         t += 1 / Hz
@@ -131,9 +131,9 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
         print("seconds elapsed: %0.2f" % currentTime)
         if i >= numFrames / 2 and halfwayFlag:
             s = "%d seconds remain." % currentTime
-            speakString(s, voiceEngine)
+            #speakString(s, voiceEngine)
             halfwayFlag = False
-    speakString("Finished.", voiceEngine)
+    #speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
     return [X, Yunfiltered, xf[0:201], fourierFilter(yf)]
@@ -282,7 +282,7 @@ def calibrationRead(filename):
         weighted = []
         lines.pop(0)
         lines.pop(0)
-        for i in range(500):
+        for i in range(200):
             line = lines[i].split('\t')
             neutral.append(float(line[4].replace('\n', '')))
             weighted.append(float(line[6].replace('\n', '')))
