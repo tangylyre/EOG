@@ -210,14 +210,14 @@ def calibrationV7Four(t, Hz, eogChan):
     engine = initSpeechEngine()
     s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
     print(s)
-    speakString(s, engine)
+    #speakString(s, engine)
     time.sleep(5)
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine)
     print("done.")
     time.sleep(1)
     s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop." % t
     print(s)
-    speakString(s, engine)
+    #speakString(s, engine)
     time.sleep(5)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine)
     time.sleep(1)
@@ -226,22 +226,22 @@ def calibrationV7Four(t, Hz, eogChan):
     if displayPlots:
         fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
         print("displaying fourier of neutral..")
-        speakString("displaying fourier of neutral..", engine)
+        #speakString("displaying fourier of neutral..", engine)
         updatePlt(plt, line, yfNeu, Hz)
         input("press enter to continue.")
         print("displaying fourier of distress..")
-        speakString("displaying fourier of distress..", engine)
+        #speakString("displaying fourier of distress..", engine)
         updatePlt(plt, line, yfDis, Hz)
         input("press enter to continue.")
         print("displaying weightedProfile..")
-        speakString("displaying fourier of weighted profile..", engine)
+        #speakString("displaying fourier of weighted profile..", engine)
         plt.xlim([0, 20])
         plt.ylim([0, 1])
         ax.clear()
         graph = plt.plot(xfDis, weightedProfile)[0]
         input("press enter to continue.")
         print("displaying raw voltage of neutral..")
-        speakString("displaying raw voltage of neutral..", engine)
+        #speakString("displaying raw voltage of neutral..", engine)
         ax.clear()
         graph = plt.plot(Xneu, Yneu)[0]
         plt.xlim([0, t])
@@ -250,7 +250,7 @@ def calibrationV7Four(t, Hz, eogChan):
         ax.clear()
         graph = plt.plot(Xneu, Ydis)[0]
         print("displaying raw voltage of distress..")
-        speakString("displaying raw voltage of distress..", engine)
+        #speakString("displaying raw voltage of distress..", engine)
         input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
@@ -262,7 +262,7 @@ def calibrationV7Four(t, Hz, eogChan):
     f.write('threshold score' + '\t' + str(threshScore) + '\t' + 'current time:\t' + currentTime + '\n')
     f.write("time(s)\tneutral(raw)\tdistress(raw)\tfrequency(Hz)\tneutral(mag)\tdistress(mag)\tweighted profile\n")
     for i in range(len(Xneu)):
-        if i < range(len(yfNeu)):
+        if i < len(yfNeu):
             line = str(Xneu[i]) + '\t' + str(Yneu[i]) + '\t' + str(Ydis[i]) + '\t' + str(xfDis[i]) + '\t' + str(
                 yfNeu[i]) + '\t' + str(yfDis[i]) + '\t' + str(weightedProfile[i]) + '\n'
         else:
@@ -337,7 +337,7 @@ def initVolPlot(rf, Hz, voltBounds=[0, 4]):
     return X, Y, fig, plt, ax, line
 
 
-def initPlot(rf, Hz, freqBounds=[0, 50], magBounds=[0, 100]):
+def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 500]):
     X, Y, xf, yf = initVals(rf, Hz)
     fig = plt.figure()
     ax = fig.add_subplot(111)
