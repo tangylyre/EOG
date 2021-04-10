@@ -337,7 +337,7 @@ def initVolPlot(rf, Hz, voltBounds=[0, 4]):
     return X, Y, fig, plt, ax, line
 
 
-def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 500]):
+def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100]):
     X, Y, xf, yf = initVals(rf, Hz)
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -352,7 +352,7 @@ def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 500]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
-def initPlotFour(xf, yf, freqBounds=[0, 50], magBounds=[0, 100]):
+def initPlotFour(xf, yf, freqBounds=[0, 20], magBounds=[0, 100]):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_ylabel('Magnitude (Volts)')
