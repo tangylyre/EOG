@@ -282,7 +282,7 @@ def calibrationRead(filename):
         weighted = []
         lines.pop(0)
         lines.pop(0)
-        for i in range(len(lines)):
+        for i in range(500):
             line = lines[i].split('\t')
             neutral.append(float(line[4].replace('\n', '')))
             weighted.append(float(line[6].replace('\n', '')))
