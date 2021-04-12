@@ -35,7 +35,7 @@ def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100]):
     return X, Y, xf, yf, fig, plt, ax, line
 
 
-def initPlotFour(xf, yf, freqBounds=[0, 40], magBounds=[0, 1000]):
+def initPlotFour(xf, yf, freqBounds=[0, 30], magBounds=[0, 1000]):
     # this is identical to the previous method, but does not initialize x and y values.
     # saving both of these due to archival dependencies, but this method is mainly used in recent scripts.
     fig = plt.figure()

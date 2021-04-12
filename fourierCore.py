@@ -166,7 +166,6 @@ def calibrationV7Four(t, Hz, eogChan):
         print("displaying weightedProfile..")
         if speech:
             speakString("displaying fourier of weighted profile..", engine)
-        plt.xlim([0, 20])
         plt.ylim([0, 1])
         ax.clear()
         graph = plt.plot(xfDis, weightedProfile)[0]
