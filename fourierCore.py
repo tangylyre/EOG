@@ -242,7 +242,7 @@ def getFourierData(filename):
         return False
 
 
-def initPlotFour(xf, yf, freqBounds=[0, 20], magBounds=[0, 100]):
+def initPlotFour(xf, yf, freqBounds=[0, 40], magBounds=[0, 1000]):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_ylabel('Magnitude (Volts)')
