@@ -220,21 +220,21 @@ def calibrationRead(filename):
 
 
 def getData(filename):
-    # reads cali file, pulls neutral and distress morphology.
+    # reads cali file, pulls neutral and distress fourier morphology.
     try:
         f = open(filename, 'r')
         lines = f.readlines()
         header = lines[0]
         threshScore = float(header.split('\t')[1])
         neutral = []
-        weighted = []
+        distress = []
         lines.pop(0)
         lines.pop(0)
         for i in range(200):
             line = lines[i].split('\t')
             neutral.append(float(line[4].replace('\n', '')))
-            weighted.append(float(line[6].replace('\n', '')))
-        return threshScore, neutral, weighted
+            distress.append(float(line[5].replace('\n', '')))
+        return neutral, distress
     except FileNotFoundError:
         print("no file found under this filename.")
         return False
