@@ -63,11 +63,12 @@ def fourierFilter(yf):
 def subtractFourier(list1, list2):
     # runs through a numpy array and subtracts list 2 from list 1 element by element.
     # if the value is negative, just make it zero. This will make downstream of weighted frequencies.
-    subtracted = list1
+    subtracted = np.zeros(len(list1))
     if len(list1) == len(list2):
-        i = 0
         for i in range(len(list1)):
-            subtracted[i] = list1[i] - list2[i]
+            val1 = list1[i]
+            val2 = list2[i]
+            subtracted[i] = val1 - val2
             if subtracted[i] < 0:
                 subtracted[i] = 0
         return subtracted
