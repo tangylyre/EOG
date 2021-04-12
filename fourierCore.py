@@ -79,13 +79,11 @@ def subtractFourier(list1, list2):
 def makeWeightProfile(eqFour):
     # accepts a normalized equalized profile, assigns each frequency a weight from 0 - 1 in relation to this numpy
     # array's maxima.
-    print(eqFour)
     weightedProfile = np.zeros(len(eqFour))
-    maxVal = np.amax(weightedProfile)
+    maxVal = np.amax(eqFour)
     for i in range(len(eqFour)):
         current = eqFour[i]
         weightedProfile[i] = current / maxVal
-    print(eqFour)
     return weightedProfile
 
 
