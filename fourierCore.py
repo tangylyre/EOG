@@ -185,6 +185,7 @@ def calibrationV7Four(t, Hz, eogChan):
         if speech:
             speakString("displaying raw voltage of distress..", engine)
         input("press enter to continue.")
+        plt.close()
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
         filename = "calibration_profile_%dHz_%dseconds.cali" % (Hz, t)

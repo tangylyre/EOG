@@ -206,13 +206,6 @@
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
     </task>
-    <task id="LOCAL-00135" summary="edit bounds of plot">
-      <created>1618089557733</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1618089557733</updated>
-    </task>
     <task id="LOCAL-00136" summary="edit bounds of plot">
       <created>1618089903640</created>
       <option name="number" value="00136" />
@@ -549,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618264564294</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="partitioning methods">
+      <created>1618264727697</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1618264727697</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
