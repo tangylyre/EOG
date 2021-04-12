@@ -1,29 +1,13 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import busio
 import digitalio
 import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
-from datetime import datetime
 from eogCore import *
 Hz = 500
 Rf = 10
 
-# this program will operate on a 10s reading frame and display the raw voltage of this frame indefinitely.
-# as of now there is no quit function, press and hold ctrl c to quit.
-
-# create the spi bus
-spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
-
-# create the cs (chip select)
-cs = digitalio.DigitalInOut(board.D5)
-
-# create the mcp object
-mcp = MCP.MCP3008(spi, cs)
-
-# create an analog input channel on pin 0
-chan1 = AnalogIn(mcp, MCP.P0)
+chan1 = initEOG()
 
 x = 0
 fig = plt.figure()
