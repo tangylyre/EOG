@@ -78,6 +78,7 @@ def makeWeightProfile(eqFour):
     # array's maxima.
     weightedProfile = eqFour
     maxVal = np.amax(eqFour)
+    print(eqFour)
     print(maxVal)
     for i in range(len(eqFour)):
         weightedProfile[i] = eqFour[i] / maxVal
