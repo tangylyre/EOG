@@ -70,7 +70,9 @@ def subtractFourier(list1, list2):
             subtracted[i] = list1[i] - list2[i]
             if subtracted[i] < 0:
                 subtracted[i] = 0
-    return subtracted
+        return subtracted
+    else:
+        return False
 
 
 def makeWeightProfile(eqFour):
@@ -102,6 +104,8 @@ def makeFourierThresholds(disFour, neuFour):
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)
+    print(disFour)
+    print(neuFour)
     print(equalizedDistress)
     weightedProfile = makeWeightProfile(equalizedDistress)
     threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.85
@@ -239,7 +243,7 @@ def getFourierData(filename):
             freq.append(float(line[3].replace('\n', '')))
             neutral.append(float(line[4].replace('\n', '')))
             distress.append(float(line[5].replace('\n', '')))
-        return freq,neutral, distress
+        return freq, neutral, distress
     except FileNotFoundError:
         print("no file found under this filename.")
         return False
