@@ -104,9 +104,6 @@ def makeFourierThresholds(disFour, neuFour):
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)
-    print(disFour)
-    print(neuFour)
-    print(equalizedDistress)
     weightedProfile = makeWeightProfile(equalizedDistress)
     threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.85
     return fourierFilter(weightedProfile), threshScore
