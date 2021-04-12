@@ -66,6 +66,9 @@ def subtractFourier(list1, list2):
                 subtracted[i] = 0
         return subtracted
     else:
+        print("unequal list length, mismatch as follows:")
+        print(len(list1))
+        print(len(list2))
         return False
 
 
