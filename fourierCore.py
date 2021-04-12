@@ -56,6 +56,8 @@ def fourierFilter(yf):
 def subtractFourier(list1, list2):
     # runs through a numpy array and subtracts list 2 from list 1 element by element.
     # if the value is negative, just make it zero. This will make downstream of weighted frequencies.
+    list1 = fourierFilter(list1)
+    list2 = fourierFilter(list2)
     subtracted = np.zeros(len(list1))
     if len(list1) == len(list2):
         for i in range(len(list1)):
@@ -99,7 +101,7 @@ def weightedFreqMag(eqFour, weightedProfile):
 def makeFourierThresholds(disFour, neuFour):
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
-    equalizedDistress = subtractFourier(fourierFilter(disFour), fourierFilter(neuFour))
+    equalizedDistress = subtractFourier(disFour, neuFour)
     weightedProfile = makeWeightProfile(equalizedDistress)
     threshScore = weightedFreqMag(equalizedDistress, weightedProfile) * 0.85
     return weightedProfile, threshScore
