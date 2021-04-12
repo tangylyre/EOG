@@ -207,13 +207,6 @@
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
     </task>
-    <task id="LOCAL-00099" summary="'modifying fourier appraoch'">
-      <created>1617313797855</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1617313797856</updated>
-    </task>
     <task id="LOCAL-00100" summary="'fuicking fuck fuck'">
       <created>1617313983072</created>
       <option name="number" value="00100" />
@@ -550,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618252529378</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="partitioning methods">
+      <created>1618253875722</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1618253875722</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

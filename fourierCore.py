@@ -219,7 +219,7 @@ def calibrationRead(filename):
         return False
 
 
-def getData(filename):
+def getFourierData(filename):
     # reads cali file, pulls neutral and distress fourier morphology.
     try:
         f = open(filename, 'r')

@@ -5,7 +5,7 @@ from utilitiesCore import *
 hz = 500
 rf = 10
 X, Y, xf, yf = initVals(rf, hz)
-neutral, distress = calibrationRead("joshcali1.cali")
+neutral, distress = getFourierData("joshcali1.cali")
 fig, plt, ax, line = initPlotFour(xf, neutral)
 input('press enter')
 updatePlt(plt, line, distress, hz)
