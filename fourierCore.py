@@ -226,15 +226,17 @@ def getFourierData(filename):
         lines = f.readlines()
         header = lines[0]
         threshScore = float(header.split('\t')[1])
+        freq = []
         neutral = []
         distress = []
         lines.pop(0)
         lines.pop(0)
         for i in range(200):
             line = lines[i].split('\t')
+            freq.append(float(line[3].replace('\n', '')))
             neutral.append(float(line[4].replace('\n', '')))
             distress.append(float(line[5].replace('\n', '')))
-        return neutral, distress
+        return freq,neutral, distress
     except FileNotFoundError:
         print("no file found under this filename.")
         return False
