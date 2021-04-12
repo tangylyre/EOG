@@ -12,6 +12,7 @@ import board
 import time
 from eogCore import *
 import pyttsx3
+from utilitiesCore import *
 
 
 def fourTransMag(y):
@@ -20,7 +21,7 @@ def fourTransMag(y):
     return mag
 
 
-def pullFourierProfile(t, Hz, eogChan, voiceEngine):
+def pullFourierProfile(t, Hz, eogChan, voiceEngine, speech):
     halfwayFlag = True
     numFrames = t * Hz
     i = 0
@@ -28,7 +29,8 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
     Y = []
     X = []
     t = 0
-    # speakString("Beginning Test..", voiceEngine)
+    if speech:
+        speakString("Beginning Test..", voiceEngine)
     while i < numFrames:
         X.append(t)
         t += 1 / Hz
@@ -40,9 +42,11 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine):
         print("seconds elapsed: %0.2f" % currentTime)
         if i >= numFrames / 2 and halfwayFlag:
             s = "%d seconds remain." % currentTime
-            # speakString(s, voiceEngine)
+            if speech:
+                speakString(s, voiceEngine)
             halfwayFlag = False
-    # speakString("Finished.", voiceEngine)
+    if speech:
+        speakString("Finished.", voiceEngine)
     Yunfiltered = Y
     yf = fourTransMag(Y)
     return [X, Yunfiltered, xf[0:201], fourierFilter(yf)]
@@ -117,41 +121,53 @@ def calibrationV7Four(t, Hz, eogChan):
         displayPlots = True
     else:
         displayPlots = False
-    engine = initSpeechEngine()
+    query = input("please input 'y' if you want audible prompts, enter if else.\n")
+    if query == 'y':
+        speech = True
+    else:
+        speech = False
+    if speech:
+        engine = initSpeechEngine()
     s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
     print(s)
-    # speakString(s, engine)
+    if speech:
+        speakString(s, engine)
     time.sleep(5)
-    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine)
+    [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     print("done.")
     time.sleep(1)
     s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop." % t
     print(s)
-    # speakString(s, engine)
+    if speech:
+        speakString(s, engine)
     time.sleep(5)
-    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine)
+    [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     time.sleep(1)
     print("done.")
     weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
     if displayPlots:
         fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
         print("displaying fourier of neutral..")
-        # speakString("displaying fourier of neutral..", engine)
+        if speech:
+            speakString("displaying fourier of neutral..", engine)
         updatePlt(plt, line, yfNeu, Hz)
         input("press enter to continue.")
         print("displaying fourier of distress..")
-        # speakString("displaying fourier of distress..", engine)
+        if speech:
+            speakString("displaying fourier of distress..", engine)
         updatePlt(plt, line, yfDis, Hz)
         input("press enter to continue.")
         print("displaying weightedProfile..")
-        # speakString("displaying fourier of weighted profile..", engine)
+        if speech:
+            speakString("displaying fourier of weighted profile..", engine)
         plt.xlim([0, 20])
         plt.ylim([0, 1])
         ax.clear()
         graph = plt.plot(xfDis, weightedProfile)[0]
         input("press enter to continue.")
         print("displaying raw voltage of neutral..")
-        # speakString("displaying raw voltage of neutral..", engine)
+        if speech:
+            speakString("displaying raw voltage of neutral..", engine)
         ax.clear()
         graph = plt.plot(Xneu, Yneu)[0]
         plt.xlim([0, t])
@@ -160,7 +176,8 @@ def calibrationV7Four(t, Hz, eogChan):
         ax.clear()
         graph = plt.plot(Xneu, Ydis)[0]
         print("displaying raw voltage of distress..")
-        # speakString("displaying raw voltage of distress..", engine)
+        if speech:
+            speakString("displaying raw voltage of distress..", engine)
         input("press enter to continue.")
     filename = input("input filename, or none for default\n")
     if len(filename) < 1:
