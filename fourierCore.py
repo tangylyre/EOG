@@ -47,7 +47,7 @@ def pullFourierProfile(t, Hz, eogChan, voiceEngine, speech):
 
 def fourierFilter(yf):
     # acts as a bandpass filter from 1 - 20 Hz, setting values <1 to 0 and removing frequencies past 50Hz.
-    yf = yf[0:200]
+    yf = yf[0:199]
     for i in range(10):
         yf[i] = 0
     return yf
