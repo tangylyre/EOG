@@ -219,6 +219,27 @@ def calibrationRead(filename):
         return False
 
 
+def getData(filename):
+    # reads cali file, pulls neutral and distress morphology.
+    try:
+        f = open(filename, 'r')
+        lines = f.readlines()
+        header = lines[0]
+        threshScore = float(header.split('\t')[1])
+        neutral = []
+        weighted = []
+        lines.pop(0)
+        lines.pop(0)
+        for i in range(200):
+            line = lines[i].split('\t')
+            neutral.append(float(line[4].replace('\n', '')))
+            weighted.append(float(line[6].replace('\n', '')))
+        return threshScore, neutral, weighted
+    except FileNotFoundError:
+        print("no file found under this filename.")
+        return False
+
+
 def initPlotFour(xf, yf, freqBounds=[0, 20], magBounds=[0, 100]):
     fig = plt.figure()
     ax = fig.add_subplot(111)

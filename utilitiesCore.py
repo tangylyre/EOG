@@ -1,15 +1,7 @@
-from datetime import datetime
 from numpy.fft import fftfreq
 import matplotlib.pyplot as plt
-import busio
-import digitalio
-import adafruit_mcp3xxx.mcp3008 as EOG
-import adafruit_mcp4725 as DAC
-from adafruit_mcp3xxx.analog_in import AnalogIn
 import numpy as np
 from scipy.fft import fft
-import board
-import time
 import pyttsx3
 
 

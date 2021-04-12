@@ -2,6 +2,7 @@ from datetime import datetime
 from eogCore import *
 from tkinter import filedialog
 import matplotlib.pyplot as plt
+from fourierCore import *
 
 
 def main():

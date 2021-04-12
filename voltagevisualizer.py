@@ -10,6 +10,8 @@ from eogCore import *
 Hz = 500
 Rf = 10
 
+# this program will operate on a 10s reading frame and display the raw voltage of this frame indefinitely.
+# as of now there is no quit function, press and hold ctrl c to quit.
 
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)

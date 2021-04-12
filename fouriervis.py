@@ -1,11 +1,12 @@
 from datetime import datetime
 from eogCore import *
+from fourierCore import *
+
+# this program will operate on a 10s reading frame and display the fourier transform of this frame indefinitely.
+# as of now there is no quit function, press and hold ctrl c to quit.
 
 
-# this is the same as readingframe v1 but with fourier implementation.
-
-
-def main():
+def fourierVisualizer():
     chanEOG = initEOG()
     currentTime = str(datetime.now()).replace(' ', '_')
     if not chanEOG:
@@ -44,4 +45,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    fourierVisualizer()
