@@ -229,7 +229,6 @@ def getFourierData(filename):
         f = open(filename, 'r')
         lines = f.readlines()
         header = lines[0]
-        threshScore = float(header.split('\t')[1])
         freq = []
         neutral = []
         distress = []
