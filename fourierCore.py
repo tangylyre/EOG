@@ -79,9 +79,11 @@ def makeWeightProfile(eqFour):
     # accepts a normalized equalized profile, assigns each frequency a weight from 0 - 1 in relation to this numpy
     # array's maxima.
     weightedProfile = eqFour
-    maxVal = np.amax(eqFour)
+    maxVal = np.amax(weightedProfile)
     for i in range(len(eqFour)):
         weightedProfile[i] = eqFour[i] / maxVal
+        print(eqFour[i])
+        print(weightedProfile[i])
     return weightedProfile
 
 
