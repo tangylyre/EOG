@@ -132,8 +132,7 @@ def calibrationV7Four(t, Hz, eogChan):
         speech = True
     else:
         speech = False
-    if speech:
-        engine = initSpeechEngine()
+    engine = initSpeechEngine()
     s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
     print(s)
     if speech:
