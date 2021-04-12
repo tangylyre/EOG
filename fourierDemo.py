@@ -1,4 +1,5 @@
 from tkinter import filedialog
+from eogCore import *
 from fourierCore import *
 
 
@@ -17,38 +18,14 @@ def main():
                                                           "*.cali*"),
                                                          ("all files",
                                                           "*.*")))
-        threshScore, neutral, weighted = calibrationRead(filename)
     else:
         filename = calibrationV7Four(rf, hz, chanEOG)
-        threshScore, neutral, weighted = calibrationRead(filename)
-    print("Calibration Profile Read Successfully!")
-    threshDetect = False
-    i = 0
-    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
-    rfPopulate = rf * hz
-    time.sleep(2)
-    print("beginning to monitor..")
-    while not threshDetect:
-        c1 = chanEOG.voltage
-        Y = popNdArray(c1, Y)
-        yf = fourTransMag(Y)
-        if i > rfPopulate:
-            # this gates any distress signal false positives while the reading frame is being populated
-            threshDetect = distressCheckFourier(yf, neutral, weighted, threshScore)
-        i += 1
-    print("threshold was exceeded!")
-    query = input("write to file? (y/n)\n")
-    if query == 'y':
-        filename = input("input filename, or none for default")
-        if len(filename) < 1:
-            filename = "distress_flag_profile_%dHz_%dseconds.tsv" % (hz, rf)
-        f = open(filename, 'w')
-        i = 0
-        f.write("time (s)\tEOG (volts)")
-        for data in Y:
-            f.write(str(i) + "\t" + str(data)+ '\n')
-            i += 1 / hz
-        f.close()
+    q = False
+    while not q:
+        fourierMonitor(chanEOG, filename)
+        query = input("quit? y/n\n")
+        if query == 'y':
+            q = True
 
 
 if __name__ == "__main__":

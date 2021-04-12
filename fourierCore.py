@@ -2,6 +2,7 @@ from datetime import datetime
 import time
 from utilitiesCore import *
 
+
 # this set of methods encompasses all the necesary calculations for a fourier analysis approach to EOG data.
 
 def fourTransMag(y):
@@ -136,7 +137,7 @@ def calibrationV7Four(t, Hz, eogChan):
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     print("done.")
     time.sleep(1)
-    s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop."\
+    s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop." \
         % t
     print(s)
     if speech:
@@ -243,3 +244,39 @@ def getFourierData(filename):
     except FileNotFoundError:
         print("no file found under this filename.")
         return False
+
+
+def fourierMonitor(chanEOG, calibrationFile, audio=True, visualizer=False):
+    # this is the implementation of a fourier based monitoring protocol,
+    # whose method ends if the threshold generated based of calibration is exceeded.
+    rf = 10
+    hz = 500
+    threshScore, neutral, weighted = calibrationRead(calibrationFile)
+    print("Calibration Profile Read Successfully!")
+    threshDetect = False
+    i = 0
+    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
+    rfPopulate = rf * hz
+    time.sleep(2)
+    print("beginning to monitor..")
+    while not threshDetect:
+        c1 = chanEOG.voltage
+        Y = popNdArray(c1, Y)
+        yf = fourTransMag(Y)
+        if i > rfPopulate:
+            # this gates any distress signal false positives while the reading frame is being populated
+            threshDetect = distressCheckFourier(yf, neutral, weighted, threshScore)
+        i += 1
+    print("threshold was exceeded!")
+    query = input("write to file? (y/n)\n")
+    if query == 'y':
+        filename = input("input filename, or none for default")
+        if len(filename) < 1:
+            filename = "distress_flag_profile_%dHz_%dseconds.tsv" % (hz, rf)
+        f = open(filename, 'w')
+        i = 0
+        f.write("time (s)\tEOG (volts)")
+        for data in Y:
+            f.write(str(i) + "\t" + str(data) + '\n')
+            i += 1 / hz
+        f.close()

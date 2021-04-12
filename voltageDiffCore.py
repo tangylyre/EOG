@@ -1,19 +1,8 @@
-from datetime import datetime
-from numpy.fft import fftfreq
-import matplotlib.pyplot as plt
-import busio
-import digitalio
-import adafruit_mcp3xxx.mcp3008 as EOG
-import adafruit_mcp4725 as DAC
-from adafruit_mcp3xxx.analog_in import AnalogIn
-import numpy as np
-from scipy.fft import fft
-import board
-import time
-import pyttsx3
-from eogCore import *
 from fourierCore import *
 
+# this set of methods provides the means to analyze reading frame data with respect to time and voltage.
+# frankly, this set is incomplete but may provide some insight as to how to approach analyses bypassing the
+# fourier transform; but fourier is cooler and can filter a lot of auxillary noise the EOG picks up on.
 
 def getVoltDif(V):
     # this function takes list V and compares them against the previous, making dif an n-1 length list.
@@ -32,6 +21,7 @@ def getVoltDif(V):
 
 
 def generateThreshold(neutralMax, distressMean, distressMax):
+    # makes a threshold of voltage differential with respect to maxima and minima of distress and neutral.
     thresh = distressMean
     while thresh < neutralMax + 0.1 and thresh < distressMax - 0.1:
         thresh += 0.01
@@ -39,6 +29,7 @@ def generateThreshold(neutralMax, distressMean, distressMax):
 
 
 def evaluateThreshold(difMean, difMax, thresh):
+    # helper method checks whether differential threshold is exceeded.
     # modify this formula dramatically if we're running with voltage differential
     evalNum = difMean * .75 + difMax * .25
     if evalNum > thresh:
@@ -48,6 +39,8 @@ def evaluateThreshold(difMean, difMax, thresh):
 
 
 def calibrationV6Diff(t, Hz, eogChan):
+    # calibration for voltage approach. calls pullFourierProfile; try to make your own method if you plan on exploring
+    # the voltage differential approach, because some of these methods are optimized towards fourier performance.
     print("Please look straight ahead for %d seconds. You will be signaled to stop." % t)
     time.sleep(5)
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan)
@@ -73,20 +66,3 @@ def calibrationV6Diff(t, Hz, eogChan):
         f.write(str(thresh))
         f.close()
     return thresh
-
-
-def initVolPlot(rf, Hz, voltBounds=[0, 4]):
-    timeBounds = [0, rf]
-    X = np.linspace(0, rf, Hz)
-    Y = np.linspace(0, 0, Hz)
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.set_ylabel('Raw EOG Signal (Volts)')
-    ax.set_xlabel('Time (s)')
-    ax.set_title('Raw Voltage Monitor')
-    line, = ax.plot(X, Y, 'b-')
-    plt.xlim(timeBounds)
-    plt.ylim(voltBounds)
-    plt.grid()
-    plt.ion()
-    return X, Y, fig, plt, ax, line
