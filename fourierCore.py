@@ -232,7 +232,6 @@ def getFourierData(filename):
     try:
         f = open(filename, 'r')
         lines = f.readlines()
-        header = lines[0]
         freq = []
         neutral = []
         distress = []
