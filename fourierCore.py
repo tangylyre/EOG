@@ -250,7 +250,7 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             if graph:
                 len(xf)
                 len(fourierFilter(equalized))
-                updatePlt(plt, line, yf, hz)
+                updatePlt(plt, line, yf[0:200], hz)
         time.sleep(1/hz)
         i += 1
     print("threshold was exceeded!")
