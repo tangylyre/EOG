@@ -18,7 +18,7 @@ def initVals(rf, Hz):
     return X, Y, xf, yf
 
 
-def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100]):
+def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100], dataBounds=[0, 200]):
     # this function initializes a fourier plot with respect to frequency of sampling and reading frame.
     # assumes the bounds of 0, 20 Hz and 0-100 magnitude.
     X, Y, xf, yf = initVals(rf, Hz)
@@ -27,7 +27,7 @@ def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100]):
     ax.set_ylabel('Magnitude (Volts)')
     ax.set_xlabel('Frequency (Hz)')
     ax.set_title('Fast Fourier Transform')
-    line, = ax.plot(xf, yf, 'b-')
+    line, = ax.plot(xf[dataBounds], yf[dataBounds], 'b-')
     plt.xlim(freqBounds)
     plt.ylim(magBounds)
     plt.grid()
