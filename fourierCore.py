@@ -226,7 +226,7 @@ def calibrationV8Four(t, Hz, eogChan):
     return threshScore, weightedProf, neutral, speech, engine
 
 
-def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech):
+def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
     rf = 10
@@ -242,9 +242,12 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
         c1 = chanEOG.voltage
         Y = popNdArray(c1, Y)
         yf = fourTransMag(Y)
-        if i > rfPopulate:
+        if i > rfPopulate and i % 5 == 0:
             # this gates any distress signal false positives while the reading frame is being populated
-            threshDetect = distressCheckFourier(yf, neutral, weightedProf, threshScore)
+            threshDetect = distressCheckFourierV2(yf, neutral, weightedProf, threshScore)
+        if graph:
+            updatePlt(plt, line, yf, hz)
+        time.sleep(1/hz)
         i += 1
     print("threshold was exceeded!")
     if speech:
