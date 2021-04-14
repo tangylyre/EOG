@@ -19,7 +19,7 @@ def main():
                                                          ("all files",
                                                           "*.*")))
     else:
-        filename = calibrationV7Four(rf, hz, chanEOG)
+        speech, engine, filename = calibrationV7Four(rf, hz, chanEOG)
     q = False
     while not q:
         fourierMonitor(chanEOG, filename)

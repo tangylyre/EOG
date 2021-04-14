@@ -22,6 +22,7 @@
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="partitioning methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fourierCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fourierDemo.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierDemo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +38,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -205,20 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00138" summary="edit bounds of plot">
-      <created>1618090317588</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1618090317588</updated>
-    </task>
-    <task id="LOCAL-00139" summary="edit bounds of plot">
-      <created>1618090504484</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1618090504484</updated>
     </task>
     <task id="LOCAL-00140" summary="edit bounds of plot">
       <created>1618090657124</created>
@@ -549,7 +535,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618265051948</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="partitioning methods">
+      <created>1618430689753</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1618430689753</updated>
+    </task>
+    <task id="LOCAL-00188" summary="partitioning methods">
+      <created>1618430845709</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1618430845709</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
