@@ -229,6 +229,7 @@ def calibrationV8Four(t, Hz, eogChan):
 def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
+    global line
     rf = 10
     hz = 500
     print("Calibration Profile Read Successfully!")
@@ -248,10 +249,8 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             equalized = subtractFourier(yf, neutral)
             threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
             if graph:
-                print(len(xf[0:200]))
-                print(len(fourierFilter(equalized)))
-                updatePlt(plt, line, yf, hz)
-        time.sleep(1/hz)
+                updatePlt(plt, line, fourierFilter(equalized), hz)
+        time.sleep(1 / hz)
         i += 1
     print("threshold was exceeded!")
     if speech:
