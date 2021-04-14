@@ -97,10 +97,10 @@ def weightedPower(fourierProf, weightedProf):
     return power
 
 
-def distressCheckFourierV2(currentFour, neutralProfile, weightedProfile, threshScore):
+def distressCheckFourierV2(equalized, weightedProfile, threshScore):
     # this function is used to repeatedly check the current reading frame to see
     # if it exceeds the threshScore with respect to neutral profile and weighted profile.
-    equalized = subtractFourier(currentFour, neutralProfile)
+
     score = weightedPower(equalized, weightedProfile)
     if score > threshScore:
         return True
@@ -234,7 +234,8 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     print("Calibration Profile Read Successfully!")
     threshDetect = False
     i = 0
-    X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz)
+    if graph:
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 1000])
     rfPopulate = rf * hz
     time.sleep(2)
     print("beginning to monitor..")
@@ -244,9 +245,10 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
         yf = fourTransMag(Y)
         if i > rfPopulate and i % 5 == 0:
             # this gates any distress signal false positives while the reading frame is being populated
-            threshDetect = distressCheckFourierV2(yf, neutral, weightedProf, threshScore)
+            equalized = subtractFourier(yf, neutral)
+            threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
         if graph:
-            updatePlt(plt, line, yf, hz)
+            updatePlt(plt, line, equalized, hz)
         time.sleep(1/hz)
         i += 1
     print("threshold was exceeded!")
