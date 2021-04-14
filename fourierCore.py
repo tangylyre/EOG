@@ -150,7 +150,7 @@ def calibrationV7Four(t, Hz, eogChan):
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     time.sleep(1)
     print("done.")
-    weightedProfile, threshScore = makeFourierThresholds(Yneu, Ydis)
+    weightedProfile, threshScore = makeFourierThresholds(Ydis, Yneu)
     if displayPlots:
         fig, plt, ax, line = initPlotFour(xfDis, yfNeu)
         print("displaying fourier of neutral..")
@@ -247,6 +247,14 @@ def getFourierData(filename):
     except FileNotFoundError:
         print("no file found under this filename.")
         return False
+
+
+def makeThreshV2(filename):
+    freq, neutral, distress = getFourierData(filename)
+    normalize = subtractFourier(distress, neutral)
+    weightedProf = makeWeightProfile(normalize)
+    threshScore = weightedFreqMag(distress, weightedProf)
+    return threshScore, weightedProf, neutral
 
 
 def fourierMonitor(chanEOG, calibrationFile, audio=True, visualizer=False):

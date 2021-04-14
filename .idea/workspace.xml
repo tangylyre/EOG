@@ -22,7 +22,6 @@
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="partitioning methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fourierCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierCore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilitiesCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilitiesCore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00137" summary="edit bounds of plot">
-      <created>1618090005172</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1618090005172</updated>
     </task>
     <task id="LOCAL-00138" summary="edit bounds of plot">
       <created>1618090317588</created>
@@ -550,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618264968253</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="partitioning methods">
+      <created>1618265051948</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1618265051948</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
