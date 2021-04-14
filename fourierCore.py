@@ -133,20 +133,23 @@ def calibrationV7Four(t, Hz, eogChan):
     else:
         speech = False
     engine = initSpeechEngine()
-    s = "Please look straight ahead for %d seconds. You will be signaled to stop." % t
+    s = "Please look straight ahead for %d seconds. You will be signaled to start and stop." % t
     print(s)
     if speech:
         speakString(s, engine)
-    time.sleep(5)
+    else:
+        time.sleep(5)
     [Xneu, Yneu, xfNeu, yfNeu] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     print("done.")
     time.sleep(1)
-    s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to stop." \
+    s = "Please move between the upper and lower poles as fast as you can for %d seconds. You will be signaled to " \
+        "start and stop." \
         % t
     print(s)
     if speech:
         speakString(s, engine)
-    time.sleep(5)
+    else:
+        time.sleep(5)
     [Xdis, Ydis, xfDis, yfDis] = pullFourierProfile(t, Hz, eogChan, engine, speech)
     time.sleep(1)
     print("done.")

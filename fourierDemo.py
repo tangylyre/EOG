@@ -22,7 +22,7 @@ def main():
         speech, engine, filename = calibrationV7Four(rf, hz, chanEOG)
     q = False
     while not q:
-        fourierMonitor(chanEOG, filename)
+        fourierMonitor(chanEOG, filename, engine, speech)
         query = input("quit? y/n\n")
         if query == 'y':
             q = True
