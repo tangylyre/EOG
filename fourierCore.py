@@ -247,8 +247,8 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             # this gates any distress signal false positives while the reading frame is being populated
             equalized = subtractFourier(yf, neutral)
             threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
-        if graph:
-            updatePlt(plt, line, equalized, hz)
+            if graph:
+                updatePlt(plt, line, equalized, hz)
         time.sleep(1/hz)
         i += 1
     print("threshold was exceeded!")
