@@ -102,13 +102,13 @@ def makeFourierThresholds(disFour, neuFour):
     nSum = np.sum(neuFour)
     print(dSum)
     print(nSum)
-    #if dSum < nSum:
-        #print("flag")
-        #print(dSum)
-        #print(nSum)
-        #temp = disFour
-        #disFour = neuFour
-        #neuFour = temp
+    # if dSum < nSum:
+    # print("flag")
+    # print(dSum)
+    # print(nSum)
+    # temp = disFour
+    # disFour = neuFour
+    # neuFour = temp
 
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
@@ -355,7 +355,7 @@ def calibrationV8Four(t, Hz, eogChan):
         ax.clear()
         graph = plt.plot(xfDis, weightedProf)[0]
         input("press enter to continue.")
-    return threshScore, weightedProf, neutral , speech, engine
+    return threshScore, weightedProf, neutral, speech, engine
 
 
 def fourierMonitor(chanEOG, calibrationFile, engine, speech):

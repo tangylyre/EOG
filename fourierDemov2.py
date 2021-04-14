@@ -25,7 +25,7 @@ def main():
         threshScore, weightedProf, neutral, speech, engine = calibrationV8Four(rf, hz, chanEOG)
     q = False
     while not q:
-        fourierMonitor(chanEOG, filename, engine, speech)
+        fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech)
         query = input("quit? y/n\n")
         if query == 'y':
             q = True
