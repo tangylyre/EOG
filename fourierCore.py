@@ -100,13 +100,16 @@ def weightedFreqMag(eqFour, weightedProfile):
 def makeFourierThresholds(disFour, neuFour):
     dSum = np.sum(disFour)
     nSum = np.sum(neuFour)
-    if dSum < nSum:
-        print("flag")
-        print(dSum)
-        print(nSum)
-        temp = disFour
-        disFour = neuFour
-        neuFour = temp
+    print(dSum)
+    print(nSum)
+    #if dSum < nSum:
+        #print("flag")
+        #print(dSum)
+        #print(nSum)
+        #temp = disFour
+        #disFour = neuFour
+        #neuFour = temp
+
     # this function will accept the fourier profiles of neutral data and distress data, subtract them,
     # and generate a weighted criteria for distress.
     equalizedDistress = subtractFourier(disFour, neuFour)

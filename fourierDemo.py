@@ -18,6 +18,8 @@ def main():
                                                           "*.cali*"),
                                                          ("all files",
                                                           "*.*")))
+        engine = initSpeechEngine()
+        speech = True
     else:
         speech, engine, filename = calibrationV7Four(rf, hz, chanEOG)
     q = False
