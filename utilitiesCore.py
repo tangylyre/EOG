@@ -27,7 +27,7 @@ def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100], dataBounds=[0, 200]
     ax.set_ylabel('Magnitude (Volts)')
     ax.set_xlabel('Frequency (Hz)')
     ax.set_title('Fast Fourier Transform')
-    line, = ax.plot(xf[0:200], yf[0:200], 'b-')
+    line, = ax.plot(xf[dataBounds[0]:dataBounds[1]], yf[dataBounds[0]:dataBounds[1]], 'b-')
     plt.xlim(freqBounds)
     plt.ylim(magBounds)
     plt.grid()
@@ -70,10 +70,10 @@ def initVolPlot(rf, Hz, voltBounds=[0, 4]):
     return X, Y, fig, plt, ax, line
 
 
-def updatePlt(plt, line, yf, Hz):
+def updatePlt(plt, line, yf, Hz, dataBounds=[0, 200]):
     # this helper function replaces the y values of a line object and then refreshes the plot.
     # this is the core of visualizing a reading frame; not necessary outside of bugfixing.
-    line.set_ydata(yf)
+    line.set_ydata(yf[dataBounds[0]:dataBounds[1]])
     plt.draw()
     plt.pause(1 / Hz)
     return
