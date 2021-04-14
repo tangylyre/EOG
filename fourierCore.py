@@ -266,7 +266,7 @@ def makeThreshV2(filename):
     freq, neutral, distress = getFourierData(filename)
     normalize = subtractFourier(distress, neutral)
     weightedProf = makeWeightProfile(normalize)
-    threshScore = weightedFreqMag(distress, weightedProf)
+    threshScore = weightedFreqMag(distress, weightedProf) * 0.65
     return threshScore, weightedProf, neutral
 
 
