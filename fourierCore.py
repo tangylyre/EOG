@@ -235,7 +235,7 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     threshDetect = False
     i = 0
     if graph:
-        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 1000])
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 100])
     rfPopulate = rf * hz
     time.sleep(2)
     print("beginning to monitor..")
