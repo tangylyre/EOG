@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="partitioning methods" />
+    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="fix github" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,20 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00147" summary="partitioning methods">
-      <created>1618252529378</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1618252529378</updated>
-    </task>
-    <task id="LOCAL-00148" summary="partitioning methods">
-      <created>1618253875722</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1618253875722</updated>
     </task>
     <task id="LOCAL-00149" summary="partitioning methods">
       <created>1618254229203</created>
@@ -545,17 +531,61 @@
       <option name="project" value="LOCAL" />
       <updated>1618435748111</updated>
     </task>
-    <option name="localTasksCounter" value="196" />
+    <task id="LOCAL-00196" summary="fix github">
+      <created>1618435816424</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1618435816424</updated>
+    </task>
+    <task id="LOCAL-00197" summary="fix github">
+      <created>1618436101983</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1618436101983</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="11f687e8-39a7-450f-86b2-def6808ad21e">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="11f687e8-39a7-450f-86b2-def6808ad21e" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -581,7 +611,9 @@
     <MESSAGE value="edit bounds of plot" />
     <MESSAGE value="add" />
     <MESSAGE value="partitioning methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="partitioning methods" />
+    <MESSAGE value="help" />
+    <MESSAGE value="fix github" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix github" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
