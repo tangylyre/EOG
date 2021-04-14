@@ -350,10 +350,11 @@ def calibrationV8Four(t, Hz, eogChan):
     threshScore, weightedProf, neutral = makeThreshV2(filename)
     if speech:
         speakString("displaying fourier of weighted profile..", engine)
-    plt.ylim([0, 1])
-    ax.clear()
-    graph = plt.plot(xfDis, weightedProf)[0]
-    input("press enter to continue.")
+    if displayPlots:
+        plt.ylim([0, 1])
+        ax.clear()
+        graph = plt.plot(xfDis, weightedProf)[0]
+        input("press enter to continue.")
     return threshScore, weightedProf, neutral , speech, engine
 
 
