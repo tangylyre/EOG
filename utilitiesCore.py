@@ -27,7 +27,7 @@ def initPlot(rf, Hz, freqBounds=[0, 20], magBounds=[0, 100], dataBounds=[0, 200]
     ax.set_ylabel('Magnitude (Volts)')
     ax.set_xlabel('Frequency (Hz)')
     ax.set_title('Fast Fourier Transform')
-    line, = ax.plot(xf[dataBounds], yf[dataBounds], 'b-')
+    line, = ax.plot(xf[0:200], yf[0:200], 'b-')
     plt.xlim(freqBounds)
     plt.ylim(magBounds)
     plt.grid()
