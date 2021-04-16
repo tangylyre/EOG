@@ -113,8 +113,8 @@ def weightedPowerTolerant(fourierProf, weightedProf):
 def distressCheckFourierV2(equalized, weightedProfile, threshScore):
     # this function is used to repeatedly check the current reading frame to see
     # if it exceeds the threshScore with respect to neutral profile and weighted profile.
-    score = weightedPowerTolerant(equalized, weightedProfile)
-    # score = weightedPower(equalized, weightedProfile)
+    #score = weightedPowerTolerant(equalized, weightedProfile)
+    score = weightedPower(equalized, weightedProfile)
     if score > threshScore:
         return True
     else:
@@ -249,7 +249,7 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     threshDetect = False
     i = 0
     if graph:
-        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, threshScore*1.5])
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 20], magBounds=[0, threshScore*1.5])
     if writeLogs:
         logTime = []
         logVolts = []
