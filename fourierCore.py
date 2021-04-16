@@ -97,11 +97,24 @@ def weightedPower(fourierProf, weightedProf):
     return power
 
 
+def weightedPowerTolerant(fourierProf, weightedProf):
+    # this func is the same as weighted power, but i square root each weighted profile value to move it closer to 1,
+    # should be more tolerant of unexpected frequencies.
+    i = 0
+    power = 0
+    while i < len(fourierProf):
+        valCurrent = fourierProf[i]
+        valWeight = np.sqrt(weightedProf[i])
+        power += valCurrent * valWeight
+        i += 1
+    return power
+
+
 def distressCheckFourierV2(equalized, weightedProfile, threshScore):
     # this function is used to repeatedly check the current reading frame to see
     # if it exceeds the threshScore with respect to neutral profile and weighted profile.
-
-    score = weightedPower(equalized, weightedProfile)
+    score = weightedPowerTolerant(equalized, weightedProfile)
+    # score = weightedPower(equalized, weightedProfile)
     if score > threshScore:
         return True
     else:
@@ -226,10 +239,10 @@ def calibrationV8Four(t, Hz, eogChan):
     return threshScore, weightedProf, neutral, speech, engine
 
 
-def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False):
+def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False, writeLogs=False):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
-    global line
+    #global line
     rf = 10
     hz = 500
     print("Calibration Profile Read Successfully!")
@@ -237,6 +250,9 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     i = 0
     if graph:
         X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 100])
+    if writeLogs:
+        logTime = []
+        logVolts = []
     rfPopulate = rf * hz
     time.sleep(2)
     print("beginning to monitor..")
@@ -250,20 +266,25 @@ def fourierMonitorv2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
             if graph:
                 updatePlt(plt, line, fourierFilter(equalized), hz)
-        time.sleep(1 / hz)
+            else:
+                time.sleep(1/hz)
+        else:
+            time.sleep(1 / hz)
         i += 1
+        if writeLogs:
+            logTime.append(i*(1/hz))
+            logVolts.append(c1)
     print("threshold was exceeded!")
     if speech:
         speakString("i need help", engine)
-    query = input("write to file? (y/n)\n")
-    if query == 'y':
+    if writeLogs:
         filename = input("input filename, or none for default")
         if len(filename) < 1:
             filename = "distress_flag_profile_%dHz_%dseconds.tsv" % (hz, rf)
         f = open(filename, 'w')
         i = 0
         f.write("time (s)\tEOG (volts)")
-        for data in Y:
+        for data in logVolts:
             f.write(str(i) + "\t" + str(data) + '\n')
             i += 1 / hz
         f.close()
