@@ -242,14 +242,14 @@ def calibrationV8Four(t, Hz, eogChan):
 def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False, writeLogs=False):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
-    #global line
+    # global line
     rf = 10
     hz = 500
     print("Calibration Profile Read Successfully!")
     threshDetect = False
     i = 0
     if graph:
-        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 1000])
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, threshScore*1.5])
     if writeLogs:
         logTime = []
         logVolts = []
@@ -267,19 +267,18 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             if graph:
                 updatePlt(plt, line, fourierFilter(equalized), hz)
             else:
-                time.sleep(1/hz)
+                time.sleep(1 / hz)
         else:
             time.sleep(1 / hz)
         i += 1
         if writeLogs:
-            logTime.append(i*(1/hz))
+            logTime.append(i * (1 / hz))
             logVolts.append(c1)
     print("threshold was exceeded!")
-    plt.close()
     if speech:
         speakString("i need help", engine)
     if writeLogs:
-        filename = input("input filename, or none for default")
+        filename = input("input filename, or none for default\n")
         if len(filename) < 1:
             filename = "distress_flag_profile_%dHz_%dseconds.tsv" % (hz, rf)
         f = open(filename, 'w')
@@ -289,3 +288,4 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             f.write(str(i) + "\t" + str(data) + '\n')
             i += 1 / hz
         f.close()
+    plt.close()
