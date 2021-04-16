@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="oh boy">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fourierCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierCore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fourierDemov2.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierDemov2.py" afterDir="false" />
-    </list>
+    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="oh boy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,13 +201,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00169" summary="partitioning methods">
-      <created>1618258653744</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1618258653744</updated>
     </task>
     <task id="LOCAL-00170" summary="partitioning methods">
       <created>1618258739178</created>
@@ -549,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618444334706</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="oh boy">
+      <created>1618589170075</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1618589170076</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
