@@ -249,7 +249,7 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     threshDetect = False
     i = 0
     if graph:
-        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 100])
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 40], magBounds=[0, 1000])
     if writeLogs:
         logTime = []
         logVolts = []
@@ -275,6 +275,7 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             logTime.append(i*(1/hz))
             logVolts.append(c1)
     print("threshold was exceeded!")
+    plt.close()
     if speech:
         speakString("i need help", engine)
     if writeLogs:
