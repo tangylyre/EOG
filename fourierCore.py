@@ -110,7 +110,7 @@ def weightedPowerTolerant(fourierProf, weightedProf):
     return power
 
 
-def distressCheckFourierV2(equalized, weightedProfile, threshScore, tolerant=False):
+def distressCheckFourierV2(equalized, weightedProfile, threshScore, tolerant=True):
     # this function is used to repeatedly check the current reading frame to see
     # if it exceeds the threshScore with respect to neutral profile and weighted profile.
     if tolerant:
