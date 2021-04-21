@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="oh boy">
+      <change afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vibrationTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fourierCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/fourierCore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/data4.21.21/eogCore.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
