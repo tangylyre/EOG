@@ -1,5 +1,5 @@
 from eogCore import *
-from time import *
+import time
 
 dac = initDAC()
 

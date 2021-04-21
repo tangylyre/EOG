@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="oh boy">
-      <change afterPath="$PROJECT_DIR$/eogCore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vibrationTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data4.21.21/eogCore.py" beforeDir="false" />
+    <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout test">
+      <change beforePath="$PROJECT_DIR$/vibrationTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/vibrationTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -206,13 +204,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00181" summary="partitioning methods">
-      <created>1618264373616</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1618264373616</updated>
     </task>
     <task id="LOCAL-00182" summary="partitioning methods">
       <created>1618264434086</created>
@@ -550,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618601974408</updated>
     </task>
-    <option name="localTasksCounter" value="230" />
+    <task id="LOCAL-00230" summary="breakout test">
+      <created>1619037012809</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1619037012809</updated>
+    </task>
+    <option name="localTasksCounter" value="231" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -619,7 +617,8 @@
     <MESSAGE value="help" />
     <MESSAGE value="fix github" />
     <MESSAGE value="oh boy" />
-    <option name="LAST_COMMIT_MESSAGE" value="oh boy" />
+    <MESSAGE value="breakout test" />
+    <option name="LAST_COMMIT_MESSAGE" value="breakout test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
