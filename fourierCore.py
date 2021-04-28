@@ -268,7 +268,7 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             equalized = subtractFourier(yf, neutral)
             threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
             if graph:
-                updatePlt(plt, line, fourierFilter(equalized), hz)
+                updatePlt(plt, line, equalized, hz)
             else:
                 time.sleep(1 / hz)
         else:
