@@ -149,7 +149,8 @@ def makeThreshV2(filename):
     freq, neutral, distress = getFourierData(filename)
     normalize = subtractFourier(distress, neutral)
     weightedProf = makeWeightProfile(normalize)
-    threshScore = weightedPower(fourierFilter(distress), fourierFilter(weightedProf)) * 0.055
+    threshScore = weightedPower(distress, weightedProf) * 0.045
+    # threshScore = weightedPower(fourierFilter(distress), fourierFilter(weightedProf)) * 0.055
     return threshScore, weightedProf, neutral
 
 
