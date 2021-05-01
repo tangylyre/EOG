@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout test">
+      <change afterPath="$PROJECT_DIR$/high light demo.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/low light demo.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/motorTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/senior design stats.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stats.mlx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soundTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/soundTest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arhurDistress2LowLight" beforeDir="false" afterPath="$PROJECT_DIR$/arhurDistress2LowLight" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arthurDistressLight" beforeDir="false" afterPath="$PROJECT_DIR$/arthurDistressLight" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data for prototype report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data for prototype report.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +81,7 @@
       <recent name="C:\Users\Cycas revoluta\Documents\github\EOG\week 6" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.calibrationRead">
+  <component name="RunManager" selected="Python.soundTest">
     <configuration name="calibrationRead" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EOG" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,7 +124,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_9" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="soundTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EOG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -125,11 +132,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_9.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/soundTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,17 +190,17 @@
     <list>
       <item itemvalue="Python.calibrationRead" />
       <item itemvalue="Python.hannemanDataScratch" />
-      <item itemvalue="Python.scratch_9" />
+      <item itemvalue="Python.soundTest" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.soundTest" />
         <item itemvalue="Python.calibrationRead" />
         <item itemvalue="Python.hannemanDataScratch" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test1" />
-        <item itemvalue="Python.scratch_9" />
       </list>
     </recent_temporary>
   </component>
@@ -205,13 +212,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00189" summary="partitioning methods">
-      <created>1618431787102</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1618431787102</updated>
     </task>
     <task id="LOCAL-00190" summary="partitioning methods">
       <created>1618432088560</created>
@@ -549,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619638153619</updated>
     </task>
-    <option name="localTasksCounter" value="238" />
+    <task id="LOCAL-00238" summary="breakout test">
+      <created>1619640837556</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1619640837556</updated>
+    </task>
+    <option name="localTasksCounter" value="239" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
