@@ -1,5 +1,6 @@
 from datetime import datetime
 import time
+from eogCore import *
 from utilitiesCore import *
 
 
@@ -122,6 +123,21 @@ def distressCheckFourierV2(equalized, weightedProfile, threshScore, tolerant=Tru
     else:
         print("threshold not reached current value is " + str(score) + "\nrequires " + str(threshScore))
         return False
+
+
+def distressCheckFourierV3(equalized, weightedProfile, threshScore, tolerant=True):
+    # this function is used to repeatedly check the current reading frame to see
+    # if it exceeds the threshScore with respect to neutral profile and weighted profile.
+    if tolerant:
+        score = weightedPowerTolerant(equalized, weightedProfile)
+    else:
+        score = weightedPower(equalized, weightedProfile)
+    percentThresh = score / threshScore
+    if percentThresh >= 1:
+        return True, percentThresh
+    else:
+        print("threshold not reached current value is " + str(percentThresh) + "\% of threshold")
+        return False, percentThresh
 
 
 def getFourierData(filename):
@@ -360,6 +376,61 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
             # this gates any distress signal false positives while the reading frame is being populated
             equalized = subtractFourier(yf, neutral)
             threshDetect = distressCheckFourierV2(equalized, weightedProf, threshScore)
+            if graph:
+                updatePlt(plt, line, equalized, hz)
+            else:
+                time.sleep(1 / hz)
+        else:
+            time.sleep(1 / hz)
+        i += 1
+        if writeLogs:
+            logTime.append(i * (1 / hz))
+            logVolts.append(c1)
+    print("threshold was exceeded!")
+    if speech:
+        speakString("i need help", engine)
+    if writeLogs:
+        filename = input("input filename, or none for default\n")
+        if len(filename) < 1:
+            filename = "distress_flag_profile_%dHz_%dseconds.tsv" % (hz, rf)
+        f = open(filename, 'w')
+        i = 0
+        f.write("time (s)\tEOG (volts)")
+        for data in logVolts:
+            f.write(str(i) + "\t" + str(data) + '\n')
+            i += 1 / hz
+        f.close()
+    plt.close()
+
+
+def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False, writeLogs=False,
+                     vibration=True):
+    # this is the implementation of a fourier based monitoring protocol,
+    # whose method ends if the threshold generated based of calibration is exceeded.
+    # global line
+    rf = 10
+    hz = 500
+    print("Calibration Profile Read Successfully!")
+    threshDetect = False
+    i = 0
+    if graph:
+        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 20], magBounds=[0, threshScore * 1.5])
+    if writeLogs:
+        logTime = []
+        logVolts = []
+    if vibration:
+        motorInit()
+    rfPopulate = rf * hz
+    time.sleep(2)
+    print("beginning to monitor..")
+    while not threshDetect:
+        c1 = chanEOG.voltage
+        Y = popNdArray(c1, Y)
+        yf = fourTransMag(Y)
+        if i > rfPopulate and i % 5 == 0:
+            # this gates any distress signal false positives while the reading frame is being populated
+            equalized = subtractFourier(yf, neutral)
+            threshDetect, percentThresh = distressCheckFourierV2(equalized, weightedProf, threshScore)
             if graph:
                 updatePlt(plt, line, equalized, hz)
             else:

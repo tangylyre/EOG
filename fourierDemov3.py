@@ -4,6 +4,8 @@ from fourierCore import *
 
 
 def main():
+    motorInit()
+    motorControl('Coarse')
     rf = 10
     hz = 500
     Y = np.linspace(0, 0, hz)
