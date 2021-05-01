@@ -8,7 +8,6 @@ def main():
     motorControl('Coarse')
     rf = 10
     hz = 500
-    Y = np.linspace(0, 0, hz)
     chanEOG = initEOG()
     if not chanEOG:
         print("failed to read EOG channel; please check circuit config and bugfix initEOG().")
