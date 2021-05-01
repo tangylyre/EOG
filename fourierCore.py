@@ -431,6 +431,8 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
             equalized = subtractFourier(yf, neutral)
             threshDetect, percentThresh = distressCheckFourierV3(equalized, weightedProf, threshScore)
             if vibration:
+                # all these motor functions do not work atm, needs to integrate sshcore and
+                # communicate with secondary raspi
                 if percentThresh <= 0.2 and not pause:
                     motorControl('Fine')
                     waitTime = 1 - percentThresh
