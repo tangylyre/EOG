@@ -4,6 +4,7 @@ import adafruit_mcp3xxx.mcp3008 as EOG
 import adafruit_mcp4725 as DAC
 from adafruit_mcp3xxx.analog_in import AnalogIn
 import board
+import RPi.GPIO as GPIO
 
 
 # This set of methods includes the core function of the EOG unit, as well as the breakout board.
@@ -31,6 +32,37 @@ def setVoltsNorm(dac, x):
     elif x < 0:
         x = 0
     dac.normalized_value = x
+    return
+
+
+def motorInit():
+    GPIO.setmode(GPIO.BOARD)
+    m1A = 36
+    m1B = 38
+    m1E = 40
+    GPIO.setup(m1A, GPIO.OUT)
+    GPIO.setup(m1B, GPIO.OUT)
+    GPIO.setup(m1E, GPIO.OUT)
+    return
+
+
+def motorControl(setting):
+    Motor1A = 36
+    Motor1B = 38
+    Motor1E = 40
+    if setting == 'Coarse':
+        GPIO.output(Motor1A, GPIO.HIGH)
+        GPIO.output(Motor1B, GPIO.LOW)
+    if setting == 'Fine':
+        GPIO.output(Motor1A, GPIO.LOW)
+        GPIO.output(Motor1B, GPIO.HIGH)
+    GPIO.output(Motor1E, GPIO.HIGH)
+    return
+
+
+def motorKill():
+    Motor1E = 40
+    GPIO.output(Motor1E, GPIO.LOW)
     return
 
 
