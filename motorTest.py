@@ -21,10 +21,17 @@ try:
     GPIO.output(Motor1A, GPIO.LOW)  # 3
     GPIO.output(Motor1B, GPIO.LOW)
     GPIO.output(Motor1E, GPIO.HIGH)
+    sleep(5)
     print("Turning motor on config 3")
     GPIO.output(Motor1A, GPIO.HIGH)  # 3
     GPIO.output(Motor1B, GPIO.HIGH)
     GPIO.output(Motor1E, GPIO.HIGH)
+    sleep(5)
+    print("Turning motor on config 4")
+    GPIO.output(Motor1A, GPIO.LOW)  # 3
+    GPIO.output(Motor1B, GPIO.HIGH)
+    GPIO.output(Motor1E, GPIO.HIGH)
+    sleep(5)
     print("Stopping motor")
     GPIO.output(Motor1E, GPIO.LOW)  # 4
 finally:
