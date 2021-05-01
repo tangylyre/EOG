@@ -430,11 +430,23 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
             # this gates any distress signal false positives while the reading frame is being populated
             equalized = subtractFourier(yf, neutral)
             threshDetect, percentThresh = distressCheckFourierV3(equalized, weightedProf, threshScore)
-            if percentThresh < 0.2 and not pause:
-                motorControl('Fine')
-                waitTime = 0
-                pause = True
-
+            if vibration:
+                if percentThresh <= 0.2 and not pause:
+                    motorControl('Fine')
+                    waitTime = 1 - percentThresh
+                    time.sleep(waitTime)
+                    motorKill()
+                    pause = True
+                if percentThresh > 0.2 and not pause:
+                    motorControl('Coarse')
+                    waitTime = 1 - percentThresh
+                    time.sleep(waitTime)
+                    motorKill()
+                    pause = True
+                else:
+                    waitTime -= (1 / hz)
+                    if waitTime <= 0:
+                        pause = False
             time.sleep(1 / hz)
         else:
             time.sleep(1 / hz)
