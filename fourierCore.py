@@ -132,7 +132,7 @@ def distressCheckFourierV3(equalized, weightedProfile, threshScore, tolerant=Tru
         score = weightedPowerTolerant(equalized, weightedProfile)
     else:
         score = weightedPower(equalized, weightedProfile)
-    percentThresh = score / threshScore
+    percentThresh = round(score / threshScore, 2)
     if percentThresh >= 1:
         return True, percentThresh
     else:
@@ -403,7 +403,7 @@ def fourierMonitorV2(chanEOG, threshScore, weightedProf, neutral, engine, speech
     plt.close()
 
 
-def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech, graph=False, writeLogs=False,
+def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech, writeLogs=False,
                      vibration=True):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
@@ -413,8 +413,6 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
     print("Calibration Profile Read Successfully!")
     threshDetect = False
     i = 0
-    if graph:
-        X, Y, xf, yf, fig, plt, ax, line = initPlot(rf, hz, freqBounds=[0, 20], magBounds=[0, threshScore * 1.5])
     if writeLogs:
         logTime = []
         logVolts = []
@@ -423,6 +421,7 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
     rfPopulate = rf * hz
     time.sleep(2)
     print("beginning to monitor..")
+    pause = False
     while not threshDetect:
         c1 = chanEOG.voltage
         Y = popNdArray(c1, Y)
@@ -430,11 +429,13 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
         if i > rfPopulate and i % 5 == 0:
             # this gates any distress signal false positives while the reading frame is being populated
             equalized = subtractFourier(yf, neutral)
-            threshDetect, percentThresh = distressCheckFourierV2(equalized, weightedProf, threshScore)
-            if graph:
-                updatePlt(plt, line, equalized, hz)
-            else:
-                time.sleep(1 / hz)
+            threshDetect, percentThresh = distressCheckFourierV3(equalized, weightedProf, threshScore)
+            if percentThresh < 0.2 and not pause:
+                motorControl('Fine')
+                waitTime = 0
+                pause = True
+
+            time.sleep(1 / hz)
         else:
             time.sleep(1 / hz)
         i += 1
