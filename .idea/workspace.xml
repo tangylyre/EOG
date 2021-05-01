@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout test">
-      <change afterPath="$PROJECT_DIR$/high light demo.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/low light demo.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/motorTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/senior design stats.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stats.mlx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arhurDistress2LowLight" beforeDir="false" afterPath="$PROJECT_DIR$/arhurDistress2LowLight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arthurDistressLight" beforeDir="false" afterPath="$PROJECT_DIR$/arthurDistressLight" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data for prototype report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data for prototype report.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motorTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/motorTest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,9 +183,9 @@
     <list>
       <item itemvalue="Python.calibrationRead" />
       <item itemvalue="Python.hannemanDataScratch" />
-      <item itemvalue="Python.soundTest" />
       <item itemvalue="Python.test1" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.soundTest" />
     </list>
     <recent_temporary>
       <list>
@@ -212,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00190" summary="partitioning methods">
-      <created>1618432088560</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1618432088560</updated>
     </task>
     <task id="LOCAL-00191" summary="partitioning methods">
       <created>1618432109500</created>
@@ -556,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619640837556</updated>
     </task>
-    <option name="localTasksCounter" value="239" />
+    <task id="LOCAL-00239" summary="breakout test">
+      <created>1619900508185</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1619900508186</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
