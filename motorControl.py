@@ -15,6 +15,7 @@ def motorInit():
 
 
 def motorControl(setting):
+    motorInit()
     GPIO.setmode(GPIO.BOARD)
     Motor1A = 36
     Motor1B = 38
@@ -30,6 +31,7 @@ def motorControl(setting):
 
 
 def motorKill():
+    motorInit()
     GPIO.setmode(GPIO.BOARD)
     Motor1E = 40
     GPIO.output(Motor1E, GPIO.LOW)
