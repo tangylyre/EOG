@@ -10,7 +10,7 @@ def initSSH():
     # client.look_for_keys(True)
     ip = '192.168.1.214'
     client.connect(ip, username='pi', passphrase='doc', password='doc', pkey=None)
-    sshCommand(client, 'cd EOG/SSHScripts')
+    print(sshCommand(client, 'cd EOG/SSHScripts'))
     return client
 
 
