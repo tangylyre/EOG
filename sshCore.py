@@ -19,7 +19,7 @@ def sshCommand(client, string):
     print("executing ssh command: " + string)
     return {'out': stdout.readlines(),
             'err': stderr.readlines(),
-            'retval': stdout.channel.recv_exit_status()}
+            'retval': stdout}
 
 
 def motorControlSSH(client, setting):
