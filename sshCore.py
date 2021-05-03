@@ -33,3 +33,7 @@ def motorControlSSH(client, setting):
 def motorKillSSH(client):
     string = "motorKill()"
     sshCommand(client, string)
+
+def sshTest():
+    SSH = initSSH()
+    

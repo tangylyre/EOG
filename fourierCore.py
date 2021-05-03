@@ -407,7 +407,6 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
                      vibration=True):
     # this is the implementation of a fourier based monitoring protocol,
     # whose method ends if the threshold generated based of calibration is exceeded.
-    # global line
     rf = 10
     hz = 500
     print("Calibration Profile Read Successfully!")
