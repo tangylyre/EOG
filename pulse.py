@@ -1,4 +1,4 @@
-from eogCore import *
+from motorControl import *
 
 motorInit()
 motorControl("Coarse")
