@@ -36,7 +36,9 @@ def motorKillSSH(client):
 
 
 def sshTest():
+
     SSH = initSSH()
+    print(sshCommand(SSH, 'pwd'))
     motorControlSSH(SSH, "Fine")
     sleep(5)
     motorKillSSH(SSH)
