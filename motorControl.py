@@ -3,6 +3,7 @@ from time import sleep
 
 
 def motorInit():
+    GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BOARD)
     m1A = 36
     m1B = 38
