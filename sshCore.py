@@ -10,7 +10,6 @@ def initSSH():
     # client.look_for_keys(True)
     ip = '192.168.1.214'
     client.connect(ip, username='pi', passphrase='doc', password='doc', pkey=None)
-    print(sshCommand(client, 'cd EOG/SSHScripts'))
     return client
 
 
@@ -19,19 +18,19 @@ def sshCommand(client, string):
     print("executing ssh command: " + string)
     return {'out': stdout.readlines(),
             'err': stderr.readlines(),
-            'retval': stdout}
+            'retval': stdout.recv_exit_status()}
 
 
 def motorControlSSH(client, setting):
     if setting == "Coarse":
-        string = 'python3 pulseCoarse.py'
+        string = 'python3 /home/pi/EOG/SSHScripts/pulseCoarse.py'
     elif setting == "Fine":
-        string = 'python3 pulseCoarse.py'
+        string = 'python3 /home/pi/EOG/SSHScripts/pulseFine.py'
     print(sshCommand(client, string))
 
 
 def motorKillSSH(client):
-    string = "python3 pulseKill.py"
+    string = "python3 /home/pi/EOG/SSHScripts/pulseKill.py"
     print(sshCommand(client, string))
 
 
