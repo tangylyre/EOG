@@ -15,9 +15,11 @@ def initSSH():
 
 
 def sshCommand(client, string):
-    client.exec_command(string)
+    stdin, stdout, stderr = client.exec_command(string)
     print("executing ssh command: " + string)
-    return
+    return {'out': stdout.readlines(),
+            'err': stderr.readlines(),
+            'retval': stdout.channel.recv_exit_status()}
 
 
 def motorControlSSH(client, setting):
@@ -25,12 +27,12 @@ def motorControlSSH(client, setting):
         string = 'python3 pulseCoarse.py'
     elif setting == "Fine":
         string = 'python3 pulseCoarse.py'
-    sshCommand(client, string)
+    print(sshCommand(client, string))
 
 
 def motorKillSSH(client):
     string = "python3 pulseKill.py"
-    sshCommand(client, string)
+    print(sshCommand(client, string))
 
 
 def sshTest():
