@@ -39,6 +39,7 @@ def sshTest():
 
     SSH = initSSH()
     print(sshCommand(SSH, 'pwd'))
+    print(sshCommand(SSH, 'ls'))
     motorControlSSH(SSH, "Fine")
     sleep(5)
     motorKillSSH(SSH)
