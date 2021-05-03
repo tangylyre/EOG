@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f384001-4752-4609-8638-37d89c1d5471" name="Default Changelist" comment="breakout test">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sshCore.py" beforeDir="false" afterPath="$PROJECT_DIR$/sshCore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,13 +205,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609877498358</updated>
-    </task>
-    <task id="LOCAL-00211" summary="oh boy">
-      <created>1618443752136</created>
-      <option name="number" value="00211" />
-      <option name="presentableId" value="LOCAL-00211" />
-      <option name="project" value="LOCAL" />
-      <updated>1618443752136</updated>
     </task>
     <task id="LOCAL-00212" summary="oh boy">
       <created>1618443767706</created>
@@ -548,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620082913094</updated>
     </task>
-    <option name="localTasksCounter" value="260" />
+    <task id="LOCAL-00260" summary="breakout test">
+      <created>1620083019763</created>
+      <option name="number" value="00260" />
+      <option name="presentableId" value="LOCAL-00260" />
+      <option name="project" value="LOCAL" />
+      <updated>1620083019763</updated>
+    </task>
+    <option name="localTasksCounter" value="261" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
