@@ -2,7 +2,11 @@ from paramiko import *
 from time import sleep
 
 
+# this set of methods provides a means to streamline ssh communications from EOG unit to vibrator unit.
+
 def initSSH():
+    # establishes a connection to the other raspi, returns the connection (client) object.
+    # i hardcoded the IP and credentials, will require tweaking when you connect to another wifi source.
     client = SSHClient()
     client.load_system_host_keys()
     # client.load_host_keys('~/.ssh/known_hosts')
@@ -14,6 +18,8 @@ def initSSH():
 
 
 def sshCommand(client, string):
+    # this function processes a string and feeds it into ssh command.
+    # returns function call status for debugging.
     stdin, stdout, stderr = client.exec_command(string)
     print("executing ssh command: " + string)
     return {'out': stdout.readlines(),
@@ -22,6 +28,8 @@ def sshCommand(client, string):
 
 
 def motorControlSSH(client, setting):
+    # utilizes sshCommand to calll different scripts in the vibration unit environment. note that the directory for
+    # these scripts are hardcoded and may need to be tweaked if you manipulate the repository.
     if setting == "Coarse":
         string = 'python3 /home/pi/EOG/SSHScripts/pulseCoarse.py'
     elif setting == "Fine":
@@ -30,11 +38,14 @@ def motorControlSSH(client, setting):
 
 
 def motorKillSSH(client):
+    # utilizes sshCommand to call different scripts in the vibration unit environment. note that the directory for
+    # these scripts are hardcoded and may need to be tweaked if you manipulate the repository.
     string = "python3 /home/pi/EOG/SSHScripts/pulseKill.py"
     print(sshCommand(client, string))
 
 
 def sshTest():
+    # runs all the above functions to test if ssh connection si working.
     SSH = initSSH()
     print(sshCommand(SSH, 'pwd'))
     print(sshCommand(SSH, 'ls'))

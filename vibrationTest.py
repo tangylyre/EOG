@@ -3,6 +3,9 @@ import time
 
 dac = initDAC()
 
+# depreciated method for operating breadboard breakout board. this will not work on our current build.
+
+
 try:
     i = 0
     while True:

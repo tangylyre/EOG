@@ -1,6 +1,8 @@
 from datetime import datetime
 import time
+
 from eogCore import *
+from sshCore import *
 from utilitiesCore import *
 
 
@@ -88,6 +90,7 @@ def makeWeightProfile(eqFour):
 
 
 def weightedPower(fourierProf, weightedProf):
+    # this helper function takes a corrected fourier profile and the weighted profile, returns a score of how close it is to the weighted.
     i = 0
     power = 0
     while i < len(fourierProf):
@@ -162,6 +165,8 @@ def getFourierData(filename):
 
 
 def makeThreshV2(filename):
+    # based on a cali file, analyze the neutral and distress data, integrate above functions to
+    # return a threshold score, neutral data to correct with, and weighted prof to calculate power score
     freq, neutral, distress = getFourierData(filename)
     normalize = subtractFourier(distress, neutral)
     weightedProf = makeWeightProfile(normalize)
@@ -409,14 +414,14 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
     # whose method ends if the threshold generated based of calibration is exceeded.
     rf = 10
     hz = 500
+    if vibration:
+        conn = initSSH()
     print("Calibration Profile Read Successfully!")
     threshDetect = False
     i = 0
     if writeLogs:
         logTime = []
         logVolts = []
-    if vibration:
-        motorInit()
     rfPopulate = rf * hz
     time.sleep(2)
     print("beginning to monitor..")
@@ -430,19 +435,22 @@ def fourierMonitorV3(chanEOG, threshScore, weightedProf, neutral, engine, speech
             equalized = subtractFourier(yf, neutral)
             threshDetect, percentThresh = distressCheckFourierV3(equalized, weightedProf, threshScore)
             if vibration:
+                # this is partially functioning, basically, this if loop takes into account the internal clock and
+                # vibrates at increasing power and frequency as the threshold score approaches distress.
+                # this definitely needs work, but at the moment serves its purpose as scaling feedback.
                 # all these motor functions do not work atm, needs to integrate sshcore and
                 # communicate with secondary raspi
                 if percentThresh <= 0.2 and not pause:
-                    motorControl('Fine')
+                    motorControlSSH(conn, 'Fine')
                     waitTime = 1 - percentThresh
                     time.sleep(waitTime)
-                    motorKill()
+                    motorKillSSH(conn)
                     pause = True
                 if percentThresh > 0.2 and not pause:
-                    motorControl('Coarse')
+                    motorControlSSH(conn, 'Coarse')
                     waitTime = 1 - percentThresh
                     time.sleep(waitTime)
-                    motorKill()
+                    motorKillSSH(conn)
                     pause = True
                 else:
                     waitTime -= (1 / hz)

@@ -3,9 +3,9 @@ from eogCore import *
 from fourierCore import *
 
 
+# this serves as initialization of calibration followed by monitoring in the fourier domain.
+
 def main():
-    motorInit()
-    motorControl('Coarse')
     rf = 10
     hz = 500
     chanEOG = initEOG()
