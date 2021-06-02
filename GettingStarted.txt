@@ -1,0 +1,37 @@
+Hello new team! Congrats on landing the project with Doc and presumably getting your hands on our old prototype.
+
+The first thing to do with your device is to initialize the device's wireless settings as both rasppi's are headless installations, meaning you cannot actually plug in the device
+to a monitor, instead you will have to connect through SSH and operate it wirelessly.
+
+To operate the device wirelessly, remove the SD card and put a WPA supplicant file with whatever wifi information you plan on using in the future. read more about this here:
+https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
+I would honestly do this for you as this can be a pain, but I don't know your wireless info. good luck.
+
+Next step is to put the SD card back into the raspi's and turn it back on and monitor your router to see if new identities appear to have connected. If you're smarter than me, there's 
+probably a more elegant way to accomplish this; but basically verify the device is connected wirelessly and note the IP address associated with both devices. THIS WILL CHANGE IF YOU CHANGE WIFI SOURCES.
+
+Now using the noted IP addresses, connect through ssh (I prefer using putty) with the following credentials:
+user: pi
+password: doc
+
+putty: 
+https://www.putty.org/
+
+
+if you want to operate the device with a visual interface you can also input a command such as 'vncserver' and access it through a program such as VNC viewer.
+
+vncviewer
+https://www.realvnc.com/en/connect/download/viewer/
+
+From this point, you should be able to accomplish practically anything on the raspi units. Assuming you havent wiped my SD cards, there should be a git directory /user/EOG that is my own repository.
+I would reccomend pulling the most recent build and saving it locally. I am not giving you control of this repository, but you have my full permission to reuse any code available. I recomend that you make your own git
+repository so you can easily transfer new code to the raspi without usb sticks or dumb google drive solutions. Its also very helpful for version control and team collaboration.
+
+If you're not familiar with github, i strongly reccomend looking into it. There are tons of forums and tutorials on this matter. Please look into it on your own time. It's very useful.
+
+If all above netcoding steps fail, I suggest wiping the SD cards and starting from scratch by installing NOOBs OS on both SD cards. Resources here:
+https://www.raspberrypi.org/documentation/installation/noobs.md
+Please note that the credentials will not be the same if you go with this method. Instead, look into default raspi credentials if you take this route.
+
+best of luck, and please don't hesitate to contact me with questions at 
+thy23@drexel.edu
